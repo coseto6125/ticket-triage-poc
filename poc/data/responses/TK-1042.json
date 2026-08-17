@@ -2,12 +2,13 @@
   "ticket_id": "TK-1042",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "12419a082548a924",
   "usage": {
     "input_tokens": 1497,
-    "output_tokens": 125
+    "output_tokens": 129
   },
   "answer": {
-    "reason": "客戶詢問已付款的六福村門票訂單狀態，並要求補發尚未收到的電子票券 QR code。",
+    "reason": "客戶吳小明詢問已付款的六福村門票為何未收到電子票券 QR code，要求今天內處理以備明天使用。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,7 +18,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "尚文彥"
+      "吳小明"
     ],
     "confidence": 1
   }

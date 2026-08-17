@@ -1,74 +1,320 @@
 {
-  "_comment": "本機個資抽取層的人工標註結果。PoC 用它模擬本機模型的輸出；正式環境換成真的本機模型，格式不變。未涵蓋的工單一律轉真人。訂單編號與公開的飯店、景點名稱不算個人資料，不在此列。",
-  "TK-1001": [{"type": "person_name", "value": "林佳蓉"}],
-  "TK-1002": [{"type": "person_name", "value": "張志豪"}],
-  "TK-1003": [{"type": "person_name", "value": "陳怡君"}],
-  "TK-1004": [{"type": "person_name", "value": "黃國倫"}],
-  "TK-1005": [{"type": "person_name", "value": "吳淑芬"}],
-  "TK-1006": [{"type": "person_name", "value": "周經理"}],
-  "TK-1007": [{"type": "person_name", "value": "李美玲"}],
+  "_comment": "本機個資抽取層的 function call 參數（report_personal_data）。PoC 用人工標註模擬本機模型的輸出；正式環境換成真的本機模型，契約不變。姓名一律是 person_name，中文、拼音、簡稱的差別由程式看字形處理。訂單編號與公開的飯店、景點名稱不算個人資料，不在此列。",
+  "TK-1001": [
+    {
+      "type": "person_name",
+      "value": "林佳蓉"
+    }
+  ],
+  "TK-1002": [
+    {
+      "type": "person_name",
+      "value": "張志豪"
+    }
+  ],
+  "TK-1003": [
+    {
+      "type": "person_name",
+      "value": "陳怡君"
+    }
+  ],
+  "TK-1004": [
+    {
+      "type": "person_name",
+      "value": "黃國倫"
+    }
+  ],
+  "TK-1005": [
+    {
+      "type": "person_name",
+      "value": "吳淑芬"
+    }
+  ],
+  "TK-1006": [
+    {
+      "type": "person_name",
+      "value": "周經理"
+    }
+  ],
+  "TK-1007": [
+    {
+      "type": "person_name",
+      "value": "李美玲"
+    }
+  ],
   "TK-1008": [],
-  "TK-1009": [{"type": "person_name", "value": "許文賓"}],
+  "TK-1009": [
+    {
+      "type": "person_name",
+      "value": "許文賓"
+    }
+  ],
   "TK-1010": [
-    {"type": "person_name", "value": "王大明"},
-    {"type": "tax_id", "value": "12345677"},
-    {"type": "tax_id", "value": "12345678"}
+    {
+      "type": "person_name",
+      "value": "王大明"
+    },
+    {
+      "type": "tax_id",
+      "value": "12345677"
+    },
+    {
+      "type": "tax_id",
+      "value": "12345678"
+    }
   ],
-  "TK-1011": [{"type": "person_name", "value": "蔡孟儒"}],
-  "TK-1012": [{"type": "person_name_en", "value": "Sarah Chen"}],
-  "TK-1013": [{"type": "person_name", "value": "楊承翰"}],
-  "TK-1014": [{"type": "person_name", "value": "鄭雅文"}],
-  "TK-1015": [{"type": "person_name", "value": "劉建宏"}],
-  "TK-1016": [{"type": "person_name", "value": "高子涵"}],
+  "TK-1011": [
+    {
+      "type": "person_name",
+      "value": "蔡孟儒"
+    }
+  ],
+  "TK-1012": [
+    {
+      "type": "person_name",
+      "value": "Sarah Chen"
+    }
+  ],
+  "TK-1013": [
+    {
+      "type": "person_name",
+      "value": "楊承翰"
+    }
+  ],
+  "TK-1014": [
+    {
+      "type": "person_name",
+      "value": "鄭雅文"
+    }
+  ],
+  "TK-1015": [
+    {
+      "type": "person_name",
+      "value": "劉建宏"
+    }
+  ],
+  "TK-1016": [
+    {
+      "type": "person_name",
+      "value": "高子涵"
+    }
+  ],
   "TK-1017": [
-    {"type": "company", "value": "XX 巴士公司"},
-    {"type": "person_name", "value": "陳先生"}
+    {
+      "type": "company",
+      "value": "XX 巴士公司"
+    },
+    {
+      "type": "person_name",
+      "value": "陳先生"
+    }
   ],
-  "TK-1018": [{"type": "person_name", "value": "賴思穎"}],
-  "TK-1019": [{"type": "person_name", "value": "羅志明"}],
-  "TK-1020": [{"type": "person_name", "value": "孫佩君"}],
-  "TK-1021": [{"type": "person_name", "value": "江俊毅"}],
-  "TK-1022": [{"type": "person_name", "value": "方雅琪"}],
+  "TK-1018": [
+    {
+      "type": "person_name",
+      "value": "賴思穎"
+    }
+  ],
+  "TK-1019": [
+    {
+      "type": "person_name",
+      "value": "羅志明"
+    }
+  ],
+  "TK-1020": [
+    {
+      "type": "person_name",
+      "value": "孫佩君"
+    }
+  ],
+  "TK-1021": [
+    {
+      "type": "person_name",
+      "value": "江俊毅"
+    }
+  ],
+  "TK-1022": [
+    {
+      "type": "person_name",
+      "value": "方雅琪"
+    }
+  ],
   "TK-1023": [
-    {"type": "person_name", "value": "杜春發"},
-    {"type": "national_id", "value": "A123456789"},
-    {"type": "phone", "value": "0912345678"},
-    {"type": "bank_account", "value": "004-123456789012"}
+    {
+      "type": "person_name",
+      "value": "杜春發"
+    },
+    {
+      "type": "national_id",
+      "value": "A123456789"
+    },
+    {
+      "type": "phone",
+      "value": "0912345678"
+    },
+    {
+      "type": "bank_account",
+      "value": "004-123456789012"
+    }
   ],
   "TK-1024": [],
-  "TK-1025": [{"type": "person_name", "value": "邱淑貞"}],
-  "TK-1026": [{"type": "person_name", "value": "何俊賢"}],
-  "TK-1027": [{"type": "person_name", "value": "蕭美惠"}],
+  "TK-1025": [
+    {
+      "type": "person_name",
+      "value": "邱淑貞"
+    }
+  ],
+  "TK-1026": [
+    {
+      "type": "person_name",
+      "value": "何俊賢"
+    }
+  ],
+  "TK-1027": [
+    {
+      "type": "person_name",
+      "value": "蕭美惠"
+    }
+  ],
   "TK-1028": [
-    {"type": "person_name", "value": "洪國峰"},
-    {"type": "passport_name", "value": "HUNG MEI LII"},
-    {"type": "passport_name", "value": "HUNG MEI LI"}
+    {
+      "type": "person_name",
+      "value": "洪國峰"
+    },
+    {
+      "type": "person_name",
+      "value": "HUNG MEI LII"
+    },
+    {
+      "type": "person_name",
+      "value": "HUNG MEI LI"
+    }
   ],
-  "TK-1029": [{"type": "person_name", "value": "曾雅妮"}],
-  "TK-1030": [{"type": "person_name", "value": "溫昇豪"}],
-  "TK-1031": [{"type": "person_name", "value": "楊承翰"}],
-  "TK-1032": [{"type": "person_name", "value": "馮麗華"}],
-  "TK-1033": [{"type": "person_name", "value": "小陳"}],
+  "TK-1029": [
+    {
+      "type": "person_name",
+      "value": "曾雅妮"
+    }
+  ],
+  "TK-1030": [
+    {
+      "type": "person_name",
+      "value": "溫昇豪"
+    }
+  ],
+  "TK-1031": [
+    {
+      "type": "person_name",
+      "value": "楊承翰"
+    }
+  ],
+  "TK-1032": [
+    {
+      "type": "person_name",
+      "value": "馮麗華"
+    }
+  ],
+  "TK-1033": [
+    {
+      "type": "person_name",
+      "value": "小陳"
+    }
+  ],
   "TK-1034": [
-    {"type": "company", "value": "甜甜圈生活誌"},
-    {"type": "person_name_en", "value": "Ivy"}
+    {
+      "type": "company",
+      "value": "甜甜圈生活誌"
+    },
+    {
+      "type": "person_name",
+      "value": "Ivy"
+    }
   ],
-  "TK-1035": [{"type": "person_name", "value": "郭台生"}],
-  "TK-1036": [{"type": "person_name", "value": "秦偉倫"}],
-  "TK-1037": [{"type": "person_name", "value": "翁曉萍"}],
-  "TK-1038": [{"type": "person_name", "value": "詹前輝"}],
+  "TK-1035": [
+    {
+      "type": "person_name",
+      "value": "郭台生"
+    }
+  ],
+  "TK-1036": [
+    {
+      "type": "person_name",
+      "value": "秦偉倫"
+    }
+  ],
+  "TK-1037": [
+    {
+      "type": "person_name",
+      "value": "翁曉萍"
+    }
+  ],
+  "TK-1038": [
+    {
+      "type": "person_name",
+      "value": "詹前輝"
+    }
+  ],
   "TK-1039": [
-    {"type": "person_name", "value": "傅心怡"},
-    {"type": "tax_id", "value": "53212345"},
-    {"type": "company", "value": "宏遠科技股份有限公司"}
+    {
+      "type": "person_name",
+      "value": "傅心怡"
+    },
+    {
+      "type": "tax_id",
+      "value": "53212345"
+    },
+    {
+      "type": "company",
+      "value": "宏遠科技股份有限公司"
+    }
   ],
-  "TK-1040": [{"type": "person_name", "value": "白建文"}],
+  "TK-1040": [
+    {
+      "type": "person_name",
+      "value": "白建文"
+    }
+  ],
   "TK-1041": [],
-  "TK-1042": [{"type": "person_name", "value": "康家豪"}],
-  "TK-1043": [{"type": "person_name", "value": "唐玉珍"}],
-  "TK-1044": [{"type": "person_name", "value": "巫啟賢"}],
-  "TK-1045": [{"type": "person_name", "value": "史蒂芬"}],
-  "TK-1046": [{"type": "person_name", "value": "柯佳嬿"}],
-  "TK-1047": [{"type": "person_name", "value": "沈日新"}],
-  "TK-1048": [{"type": "person_name", "value": "阮氏梅"}]
+  "TK-1042": [
+    {
+      "type": "person_name",
+      "value": "康家豪"
+    }
+  ],
+  "TK-1043": [
+    {
+      "type": "person_name",
+      "value": "唐玉珍"
+    }
+  ],
+  "TK-1044": [
+    {
+      "type": "person_name",
+      "value": "巫啟賢"
+    }
+  ],
+  "TK-1045": [
+    {
+      "type": "person_name",
+      "value": "史蒂芬"
+    }
+  ],
+  "TK-1046": [
+    {
+      "type": "person_name",
+      "value": "柯佳嬿"
+    }
+  ],
+  "TK-1047": [
+    {
+      "type": "person_name",
+      "value": "沈日新"
+    }
+  ],
+  "TK-1048": [
+    {
+      "type": "person_name",
+      "value": "阮氏梅"
+    }
+  ]
 }

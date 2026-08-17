@@ -63,7 +63,7 @@ def parse(raw: Any) -> Answer:
         raise InvalidAnswer(f"未知的受理判定：{disposition}")
 
     assignment = _text(raw, "assignment")
-    if assignment not in (catalog.SUPPORT, catalog.REFERRAL, catalog.NOT_APPLICABLE):
+    if assignment not in {catalog.SUPPORT, catalog.REFERRAL, catalog.NOT_APPLICABLE}:
         raise InvalidAnswer(f"未知的承辦歸屬：{assignment}")
 
     scenarios = _strings(raw, "scenarios")

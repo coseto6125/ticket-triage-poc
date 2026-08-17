@@ -2,23 +2,25 @@
   "ticket_id": "TK-1007",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "4636820f3e032381",
   "usage": {
     "input_tokens": 1483,
-    "output_tokens": 132
+    "output_tokens": 140
   },
   "answer": {
-    "reason": "客戶郝欣妍原訂3月28日出發的九州團，想改期至4月8日梯次並詢問差價計算方式。",
+    "reason": "客戶林小美想要將原訂3月28日出發的九州團改期至4月8日，並詢問差價計算方式。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "booking_change",
+      "product_info"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [
-      "郝欣妍"
+      "林小美"
     ],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

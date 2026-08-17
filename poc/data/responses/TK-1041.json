@@ -2,12 +2,13 @@
   "ticket_id": "TK-1041",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "1d76f1846af38c89",
   "usage": {
     "input_tokens": 1445,
-    "output_tokens": 112
+    "output_tokens": 109
   },
   "answer": {
-    "reason": "寄件者發送了一封內容為測試的測試信件，屬於系統測試或無效內容。",
+    "reason": "寄件者為測試人員，內文僅為測試訊息，無實際客服訴求。",
     "disposition": "reject",
     "assignment": "not_applicable",
     "scenarios": [

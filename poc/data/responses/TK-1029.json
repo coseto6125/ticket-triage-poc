@@ -2,12 +2,13 @@
   "ticket_id": "TK-1029",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "ad7382b696ede7eb",
   "usage": {
     "input_tokens": 1517,
-    "output_tokens": 129
+    "output_tokens": 135
   },
   "answer": {
-    "reason": "客戶抱怨出發當天領隊未出現導致全家錯過班機，要求賠償相關損失。",
+    "reason": "客戶吳小明投訴出發當天領隊未出現導致全家錯過班機，要求賠償相關自費損失。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,7 +18,7 @@
     "is_irreversible": false,
     "money_mentioned": "45,000 元",
     "residual_pii": [
-      "尚文彥"
+      "吳小明"
     ],
     "confidence": 1
   }

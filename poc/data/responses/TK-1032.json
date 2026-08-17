@@ -2,22 +2,24 @@
   "ticket_id": "TK-1032",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "341d67ce5eabc513",
   "usage": {
     "input_tokens": 1484,
-    "output_tokens": 122
+    "output_tokens": 120
   },
   "answer": {
-    "reason": "客戶詢問家父使用輪椅參加日本溫泉行程的無障礙房與斜坡巴士等特殊需求可行性。",
+    "reason": "客戶詢問家父使用輪椅參加日本溫泉行程的無障礙設施可行性與條件。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "special_request",
-      "product_info"
+      "special_request"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "王小美"
+    ],
     "confidence": 1
   }
 }

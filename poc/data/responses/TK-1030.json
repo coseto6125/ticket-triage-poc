@@ -2,12 +2,13 @@
   "ticket_id": "TK-1030",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "4c0628a0c2db682a",
   "usage": {
     "input_tokens": 1499,
-    "output_tokens": 142
+    "output_tokens": 149
   },
   "answer": {
-    "reason": "客戶詹又寧來信詢問官網標示價格與結帳金額不符的原因。",
+    "reason": "寄件者劉小美反應官網大阪自由行網頁標價與實際結帳金額不符，詢問原因。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,7 +19,7 @@
     "is_irreversible": false,
     "money_mentioned": "21,900、25,400",
     "residual_pii": [
-      "詹又寧"
+      "劉小美"
     ],
     "confidence": 0.95
   }

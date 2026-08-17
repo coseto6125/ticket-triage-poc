@@ -2,12 +2,13 @@
   "ticket_id": "TK-1031",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "b0ef23c0b7cd23b8",
   "usage": {
     "input_tokens": 1511,
-    "output_tokens": 136
+    "output_tokens": 143
   },
   "answer": {
-    "reason": "客戶詢問重複扣款處理進度，並表達不滿與要求處理。",
+    "reason": "客戶陳小美來信追問峇里島訂單重複扣款的處理進度，並要求盡快回覆否則將請銀行止付。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,9 +18,7 @@
     "is_complaint": true,
     "is_irreversible": false,
     "money_mentioned": "32,500、33,100",
-    "residual_pii": [
-      "衛可庭"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

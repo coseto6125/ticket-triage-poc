@@ -2,12 +2,13 @@
   "ticket_id": "TK-1024",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "d64d67293a92d5fa",
   "usage": {
     "input_tokens": 1456,
-    "output_tokens": 107
+    "output_tokens": 118
   },
   "answer": {
-    "reason": "客戶抱怨電話打不通，屬於資訊不足的客訴信件。",
+    "reason": "客戶抱怨電話打不通，因內容過於簡短且無具體訂單或需求，判定為資訊不足。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,6 +18,6 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 0.85
+    "confidence": 0.95
   }
 }

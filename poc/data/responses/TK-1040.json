@@ -2,12 +2,13 @@
   "ticket_id": "TK-1040",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "df43f23f8bc000c5",
   "usage": {
     "input_tokens": 1486,
-    "output_tokens": 109
+    "output_tokens": 112
   },
   "answer": {
-    "reason": "藍映竹詢問 8 月去曼谷的泰國簽證規定與落地簽是否可用。",
+    "reason": "客戶王小美詢問 8 月去泰國曼谷旅遊的簽證相關規定與落地簽是否可用。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [

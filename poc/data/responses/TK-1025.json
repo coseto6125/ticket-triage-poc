@@ -2,24 +2,24 @@
   "ticket_id": "TK-1025",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "8f12e02f2d8bf14a",
   "usage": {
     "input_tokens": 1480,
-    "output_tokens": 125
+    "output_tokens": 121
   },
   "answer": {
-    "reason": "客戶想詢問帶 2 歲小孩參加沖繩團的收費方式與標準。",
+    "reason": "客戶詢問 2 歲小孩參加親子沖繩團的收費方式及計費標準。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "special_request",
-      "product_info"
+      "special_request"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "戚宗翰"
+      "林小明"
     ],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

@@ -2,12 +2,13 @@
   "ticket_id": "TK-1020",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "005bd226489a7f24",
   "usage": {
     "input_tokens": 1484,
-    "output_tokens": 128
+    "output_tokens": 123
   },
   "answer": {
-    "reason": "客戶沈柏睿詢問 7/18 九份平溪一日遊的行程表與集合資訊何時會寄出。",
+    "reason": "客戶詢問 7/18 出發的一日遊行程表與集合資訊何時會寄出。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,7 +18,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "沈柏睿"
+      "王小明"
     ],
     "confidence": 1
   }

@@ -2,12 +2,13 @@
   "ticket_id": "TK-1026",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "d5186198e407072c",
   "usage": {
     "input_tokens": 1487,
-    "output_tokens": 128
+    "output_tokens": 125
   },
   "answer": {
-    "reason": "寄件者想應徵貴公司導遊或 OP 職缺，並附上履歷，屬於求職應徵信件。",
+    "reason": "寄件者是求職者吳小美，來信附上履歷應徵導遊或 OP 職缺。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -17,7 +18,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "冉靖翔"
+      "吳小美"
     ],
     "confidence": 1
   }

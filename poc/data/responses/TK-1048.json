@@ -2,9 +2,10 @@
   "ticket_id": "TK-1048",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "42a8996ce47a7360",
   "usage": {
     "input_tokens": 1488,
-    "output_tokens": 115
+    "output_tokens": 783
   },
   "answer": {
     "reason": "客戶詢問跟團在出發前3天取消的手續費比例以及定型化契約的退費級距規定。",
@@ -17,6 +18,6 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

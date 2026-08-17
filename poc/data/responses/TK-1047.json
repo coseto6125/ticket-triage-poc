@@ -2,12 +2,13 @@
   "ticket_id": "TK-1047",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "e58b10967f1e396e",
   "usage": {
-    "input_tokens": 1502,
-    "output_tokens": 114
+    "input_tokens": 1501,
+    "output_tokens": 125
   },
   "answer": {
-    "reason": "記者步鎮宇來信邀請公司發言人受訪或提供暑假旅遊趨勢的書面回覆。",
+    "reason": "記者黃小明邀請公司發言人受訪或提供書面回覆以製作暑假旅遊趨勢專題。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "黃小明"
+    ],
     "confidence": 1
   }
 }

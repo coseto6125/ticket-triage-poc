@@ -23,6 +23,7 @@ FIELDS: Final[tuple[str, ...]] = (
     "triggers",
     "tools",
     "pii_count",
+    "banned_hits",
     "money_mentioned",
     "reason",
 )
@@ -33,7 +34,6 @@ class Row(NamedTuple):
 
     ticket: Ticket
     decision: router.Decision
-    category: str
     scenarios: tuple[str, ...]
     is_complaint: bool
     confidence: float
@@ -43,13 +43,19 @@ class Row(NamedTuple):
     reply_mode: str
     banned_hits: tuple[str, ...]
 
+    @property
+    def primary(self) -> str:
+        """主要服務情境，降級時為空字串。"""
+        return self.scenarios[0] if self.scenarios else ""
+
     def as_record(self) -> dict[str, str]:
+        # CSV 的 category 欄位沿用題目指定的名稱，內容是主要服務情境
         return {
             "ticket_id": self.ticket.ticket_id,
             "created_at": self.ticket.created_at.isoformat(),
             "channel": self.ticket.channel,
-            "category": self.category,
-            "category_label": catalog.BY_NAME[self.category].label if self.category else "",
+            "category": self.primary,
+            "category_label": catalog.BY_NAME[self.primary].label if self.primary else "",
             "scenarios": "|".join(self.scenarios),
             "route": self.decision.route,
             "reply_mode": self.reply_mode,
@@ -59,6 +65,7 @@ class Row(NamedTuple):
             "triggers": "|".join(self.decision.triggers),
             "tools": "|".join(catalog.tools_for(list(self.scenarios))),
             "pii_count": str(self.pii_count),
+            "banned_hits": "|".join(self.banned_hits),
             "money_mentioned": self.money_mentioned,
             "reason": self.decision.reason,
         }
@@ -95,17 +102,19 @@ def build_summary(rows: list[Row], tickets: list[Ticket]) -> str:
         for name in row.scenarios:
             by_scenario[f"{catalog.BY_NAME[name].label}（{name}）"] += 1
     by_group = Counter(
-        catalog.GROUP_BY_NAME[catalog.BY_NAME[row.category].group].label for row in rows if row.category
+        catalog.GROUP_BY_NAME[catalog.BY_NAME[row.primary].group].label for row in rows if row.primary
     )
     by_route = Counter(row.decision.route for row in rows)
     by_mode = Counter(row.reply_mode for row in rows)
     by_trigger = Counter(t for row in rows for t in row.decision.triggers)
     by_note = Counter(n for t in tickets for n in t.notes)
 
+    # 用寄件者姓名分組，但只輸出工單編號。這份摘要是統計文件，不需要知道是誰。
     same_sender: defaultdict[str, list[str]] = defaultdict(list)
     for ticket in tickets:
         same_sender[ticket.customer_name].append(ticket.ticket_id)
-    repeats = {k: v for k, v in same_sender.items() if len(v) > 1}
+    repeats = [ids for ids in same_sender.values() if len(ids) > 1]
+    guarded = sum(1 for row in rows if row.banned_hits)
 
     multi = sum(1 for row in rows if len(row.scenarios) > 1)
     lines = [
@@ -139,8 +148,9 @@ def build_summary(rows: list[Row], tickets: list[Ticket]) -> str:
         "",
         "### 疑似重複來信",
         "",
-        "同一位寄件者的多封工單，未自動合併，理由見 README。",
+        "同一位寄件者的多封工單，未自動合併，理由見 README。此處只列工單編號，不列姓名。",
         "",
     ]
-    lines += [f"- {name}：{'、'.join(ids)}" for name, ids in repeats.items()] if repeats else ["- 無"]
+    lines += [f"- {'、'.join(ids)}" for ids in repeats] if repeats else ["- 無"]
+    lines += ["", "### 禁用詞攔截", "", f"草稿因命中承諾句式而被降級：{guarded} 件。"]
     return "\n".join(lines) + "\n"

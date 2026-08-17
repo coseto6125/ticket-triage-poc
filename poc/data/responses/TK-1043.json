@@ -2,23 +2,26 @@
   "ticket_id": "TK-1043",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "439af3dc51892ecb",
   "usage": {
     "input_tokens": 1515,
-    "output_tokens": 128
+    "output_tokens": 144
   },
   "answer": {
-    "reason": "客戶的公司團體報名人數減少，詢問退費計算、剩餘團費變動及是否能成團。",
+    "reason": "客戶詢問 12 人團體有 2 人退出後的退費計算、剩餘團費變動及成團狀況。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
       "cancel_refund",
-      "booking_change",
-      "product_info"
+      "product_info",
+      "booking_change"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [],
-    "confidence": 1
+    "residual_pii": [
+      "張小美"
+    ],
+    "confidence": 0.95
   }
 }

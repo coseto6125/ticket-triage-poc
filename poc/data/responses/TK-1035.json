@@ -2,12 +2,13 @@
   "ticket_id": "TK-1035",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "6c7cd0e667b0ea60",
   "usage": {
     "input_tokens": 1492,
-    "output_tokens": 114
+    "output_tokens": 127
   },
   "answer": {
-    "reason": "客戶詢問 7/15 曼谷團的出發通知與登機資訊何時會寄出。",
+    "reason": "客戶劉小美詢問 7/15 曼谷團的出發通知與登機資訊何時會寄出。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "劉小美"
+    ],
     "confidence": 1
   }
 }

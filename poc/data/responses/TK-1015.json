@@ -2,12 +2,13 @@
   "ticket_id": "TK-1015",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "1cf3910469fd890a",
   "usage": {
     "input_tokens": 1514,
-    "output_tokens": 130
+    "output_tokens": 137
   },
   "answer": {
-    "reason": "客戶因骨折開刀無法成行，檢附診斷證明，申請 7/20 馬爾地夫蜜月行程的全額退費。",
+    "reason": "客戶劉小明因骨折開刀無法成行，申請 7/20 馬爾地夫蜜月行程的全額退費。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "186,000 元",
-    "residual_pii": [],
+    "residual_pii": [
+      "劉小明"
+    ],
     "confidence": 1
   }
 }

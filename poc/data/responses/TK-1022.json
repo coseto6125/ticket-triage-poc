@@ -2,12 +2,13 @@
   "ticket_id": "TK-1022",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "10d7f0d078dcad43",
   "usage": {
     "input_tokens": 1483,
-    "output_tokens": 133
+    "output_tokens": 139
   },
   "answer": {
-    "reason": "客戶藍映竹詢問 8 月土耳其團的機上餐與團體餐是否能安排全素餐點。",
+    "reason": "客戶詢問 8 月土耳其團的機上餐與團體餐是否能安排全素（不含蛋奶）的特殊餐食需求。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,7 +19,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "藍映竹"
+      "王小美"
     ],
     "confidence": 1
   }

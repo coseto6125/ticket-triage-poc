@@ -2,12 +2,13 @@
   "ticket_id": "TK-1028",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "69bf53a1d8afa0c5",
   "usage": {
-    "input_tokens": 1505,
-    "output_tokens": 123
+    "input_tokens": 1504,
+    "output_tokens": 127
   },
   "answer": {
-    "reason": "客戶詢問 7/8 首爾團太太護照英文名拼寫錯誤是否需要更正以及會不會影響登機。",
+    "reason": "陳小明詢問7/8首爾團太太護照英文姓名拼音有誤是否需要更正以及是否影響登機。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,6 +19,6 @@
     "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1
+    "confidence": 0.95
   }
 }

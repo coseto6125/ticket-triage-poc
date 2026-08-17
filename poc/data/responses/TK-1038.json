@@ -2,12 +2,13 @@
   "ticket_id": "TK-1038",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "61d8e6deff6bd0a8",
   "usage": {
     "input_tokens": 1474,
-    "output_tokens": 127
+    "output_tokens": 119
   },
   "answer": {
-    "reason": "寄件者宮子墨詢問上週辦理取消退款後，退款大約需要多久才會入帳至信用卡中。",
+    "reason": "客戶詢問上週辦理的取消退款何時會退回信用卡入帳。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,8 +18,8 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "宮子墨"
+      "張小明"
     ],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

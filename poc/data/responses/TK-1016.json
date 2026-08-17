@@ -2,12 +2,13 @@
   "ticket_id": "TK-1016",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "e35450466f319b4f",
   "usage": {
     "input_tokens": 1493,
-    "output_tokens": 142
+    "output_tokens": 145
   },
   "answer": {
-    "reason": "客戶涂宥安因為連續輸錯密碼導致會員帳號被鎖定，且收不到驗證碼，要求協助解鎖帳號以處理待付款訂單。",
+    "reason": "客戶李小明因為連續輸錯密碼導致會員帳號被鎖定，且收不到驗證碼，要求協助解鎖帳號以處理待付款訂單。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -15,11 +16,11 @@
       "order_status"
     ],
     "is_complaint": false,
-    "is_irreversible": true,
+    "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "涂宥安"
+      "李小明"
     ],
-    "confidence": 1
+    "confidence": 0.98
   }
 }

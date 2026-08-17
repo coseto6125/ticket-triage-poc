@@ -2,12 +2,13 @@
   "ticket_id": "TK-1012",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "125aa42297caf52a",
   "usage": {
-    "input_tokens": 1502,
-    "output_tokens": 125
+    "input_tokens": 1506,
+    "output_tokens": 127
   },
   "answer": {
-    "reason": "客戶Grace Yeh來信要求將7月12日太魯閣一日遊訂單的接送飯店從太魯閣晶英酒店更改為花蓮車站附近的飯店。",
+    "reason": "Lee Hsiao-Mei wants to change her pickup hotel for the Taroko Gorge day tour on Jul 12.",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [],
-    "confidence": 1
+    "residual_pii": [
+      "Lee Hsiao-Mei"
+    ],
+    "confidence": 1.0
   }
 }

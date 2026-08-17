@@ -2,12 +2,13 @@
   "ticket_id": "TK-1034",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "7be6a6dab5bddf73",
   "usage": {
-    "input_tokens": 1498,
-    "output_tokens": 104
+    "input_tokens": 1497,
+    "output_tokens": 102
   },
   "answer": {
-    "reason": "創作者洽談沖繩行程的互惠合作或業配提案。",
+    "reason": "網紅寫信洽談沖繩行程的業配合作。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [

@@ -2,12 +2,13 @@
   "ticket_id": "TK-1027",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "3ff3e1504b042f90",
   "usage": {
     "input_tokens": 1488,
-    "output_tokens": 115
+    "output_tokens": 116
   },
   "answer": {
-    "reason": "客戶詢問會員帳號中的旺來金折抵限制與過期規則。",
+    "reason": "客戶詢問旺來金折抵上限的規則以及點數是否會過期。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [

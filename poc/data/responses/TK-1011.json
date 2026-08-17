@@ -2,12 +2,13 @@
   "ticket_id": "TK-1011",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "a02a974f1baf608f",
   "usage": {
     "input_tokens": 1511,
-    "output_tokens": 139
+    "output_tokens": 144
   },
   "answer": {
-    "reason": "客戶抱怨導遊態度差且行程縮水，要求正式道歉並退還部分團費 8,000 元。",
+    "reason": "陳小明抱怨清邁團導遊態度差且行程縮水，要求正式道歉並退還部分團費 8,000 元。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,7 +19,7 @@
     "is_irreversible": true,
     "money_mentioned": "8,000 元",
     "residual_pii": [
-      "闕思賢"
+      "陳小明"
     ],
     "confidence": 1
   }

@@ -31,7 +31,7 @@ _FOOTER: Final = """
 服務情境填多個時，把最主要的那一個放在第一位。
 
 第一層填 reject 時，承辦歸屬填 not_applicable，服務情境只填該封信屬於的 reject 情境
-（spam_fraud 或 test_noise），is_complaint 填 false。
+（{reject_names}），is_complaint 填 false。
 
 只輸出符合 schema 的 JSON。"""
 
@@ -44,7 +44,8 @@ def build() -> str:
         for scenario in catalog.SCENARIOS:
             if scenario.group == group.name:
                 lines.append(f"- `{scenario.name}` {scenario.label}：{scenario.description}")
-    lines.append(_FOOTER)
+    reject_names = " 或 ".join(catalog.names_with_disposition(catalog.REJECT))
+    lines.append(_FOOTER.format(reject_names=reject_names))
     return "\n".join(lines)
 
 

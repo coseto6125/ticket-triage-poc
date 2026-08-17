@@ -4,8 +4,6 @@
 都走 router.degraded，一律轉真人。
 """
 
-from pathlib import Path
-
 from triage import gemini, pii, prompt, reply, report, router, validate
 from triage.ingest import Ticket
 
@@ -35,7 +33,8 @@ class Pipeline:
             ticket.ticket_id, ticket.channel, safe["sender"], safe["subject"], safe["body"]
         )
         if leaked := masked.leaked(text):
-            return self._degraded(ticket, masked, f"假名化後仍偵測到原值：{'、'.join(leaked)}")
+            # 只寫型別不寫值：這段訊息會進 CSV 的 reason 欄，寫原值等於把個資落地
+            return self._degraded(ticket, masked, f"假名化後仍偵測到 {'、'.join(leaked)} 的原值")
 
         try:
             answer = validate.parse(self.classifier.classify(ticket.ticket_id, text))
@@ -44,43 +43,40 @@ class Pipeline:
 
         residual = tuple(v for v in answer.residual_pii if not masked.covers(v))
         decision = router.decide(answer, residual)
-        mode, draft, hits = reply.render(answer, decision, safe["sender"], masked)
+        draft = reply.render(answer, decision, safe["sender"], masked)
         return report.Row(
             ticket=ticket,
             decision=decision,
-            category=answer.scenarios[0],
             scenarios=answer.scenarios,
             is_complaint=answer.is_complaint,
             confidence=answer.confidence,
             pii_count=masked.entity_count,
             money_mentioned=answer.money_mentioned,
-            draft=draft,
-            reply_mode=mode,
-            banned_hits=hits,
+            draft=draft.text,
+            reply_mode=draft.reply_mode,
+            banned_hits=draft.banned_hits,
         )
 
     def _degraded(self, ticket: Ticket, masked: pii.Pseudonymizer, detail: str) -> report.Row:
         decision = router.degraded(detail)
-        sender = masked.apply(ticket.customer_name)
-        _, draft, _ = reply.render(None, decision, sender, masked)
+        draft = reply.render(None, decision, masked.apply(ticket.customer_name), masked)
         return report.Row(
             ticket=ticket,
             decision=decision,
-            category="",
             scenarios=(),
             is_complaint=False,
             confidence=0.0,
             pii_count=masked.entity_count,
             money_mentioned="",
-            draft=draft,
-            reply_mode=router.ACK_ONLY,
-            banned_hits=(),
+            draft=draft.text,
+            reply_mode=draft.reply_mode,
+            banned_hits=draft.banned_hits,
         )
 
     def run(self, tickets: list[Ticket]) -> list[report.Row]:
         return [self.run_one(ticket) for ticket in tickets]
 
 
-def build(*, refresh: bool = False, annotations: Path | None = None) -> Pipeline:
+def build(*, refresh: bool = False) -> Pipeline:
     """組出預設管線。"""
-    return Pipeline(gemini.Classifier(refresh=refresh), pii.MockTransport(annotations))
+    return Pipeline(gemini.Classifier(refresh=refresh), pii.MockTransport())

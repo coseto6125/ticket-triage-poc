@@ -28,6 +28,9 @@ def main(argv: list[str] | None = None) -> int:
     selected = tickets[args.offset :]
     if args.limit:
         selected = selected[: args.limit]
+    if not selected:
+        print(f"選取範圍內沒有工單（共 {len(tickets)} 筆，offset={args.offset}）")
+        return 1
 
     engine = pipeline.build(refresh=args.refresh)
     mode = "呼叫 API" if engine.classifier.live else "重跑既有回應"
@@ -39,7 +42,7 @@ def main(argv: list[str] | None = None) -> int:
         rows.append(row)
         print(
             f"  {index:>2}/{len(selected)} {ticket.ticket_id} "
-            f"{row.category or '-':<16} {row.decision.route:<5} {row.reply_mode}",
+            f"{row.primary or '-':<16} {row.decision.route:<5} {row.reply_mode}",
             flush=True,
         )
 

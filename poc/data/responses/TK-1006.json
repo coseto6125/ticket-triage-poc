@@ -2,12 +2,13 @@
   "ticket_id": "TK-1006",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "00c4ca3bbf09ac21",
   "usage": {
     "input_tokens": 1482,
-    "output_tokens": 124
+    "output_tokens": 119
   },
   "answer": {
-    "reason": "寄件者詢問公司規模約 120 人的年度員工旅遊企業包團服務與報價窗口。",
+    "reason": "企業客戶詢問公司約120人的年度員工旅遊包團服務與報價窗口。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -17,7 +18,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "涂宥安"
+      "陳經理"
     ],
     "confidence": 1
   }

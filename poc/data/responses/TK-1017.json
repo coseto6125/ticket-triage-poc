@@ -2,12 +2,13 @@
   "ticket_id": "TK-1017",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "38cee22a5e10efee",
   "usage": {
-    "input_tokens": 1505,
-    "output_tokens": 131
+    "input_tokens": 1504,
+    "output_tokens": 122
   },
   "answer": {
-    "reason": "供應商寄來7月花東包車報價單，請公司確認並簽回。",
+    "reason": "範例巴士公司王先生寄來7月花東包車的報價單與後續確認要求。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -16,9 +17,7 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "18,000 元",
-    "residual_pii": [
-      "曜嵐工程行 沈柏睿"
-    ],
-    "confidence": 1
+    "residual_pii": [],
+    "confidence": 1.0
   }
 }

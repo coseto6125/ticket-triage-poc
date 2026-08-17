@@ -30,12 +30,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.limit:
         tickets = tickets[: args.limit]
 
+    if not tickets:
+        print(f"選取範圍內沒有工單（offset={args.offset}）")
+        return 1
+
     engine = pipeline.build(refresh=args.refresh)
     agree = 0
     for ticket in tickets:
         row = engine.run_one(ticket)
-        want = expected[ticket.ticket_id]
-        ok_primary = row.category == want["primary"] or row.category in want.get("alt_primary", [])
+        if (want := expected.get(ticket.ticket_id)) is None:
+            print(f"{ticket.ticket_id}  沒有人工標註，略過比對")
+            continue
+        ok_primary = row.primary == want["primary"] or row.primary in want.get("alt_primary", [])
         ok_complaint = row.is_complaint == want["is_complaint"]
         ok_route = row.decision.route == want["route"]
         if ok_primary and ok_complaint and ok_route:
@@ -43,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         diffs = []
         if not ok_primary:
-            diffs.append(f"情境 期望 {want['primary']} 得到 {row.category or '-'}")
+            diffs.append(f"情境 期望 {want['primary']} 得到 {row.primary or '-'}")
         if not ok_complaint:
             diffs.append(f"客訴 期望 {want['is_complaint']} 得到 {row.is_complaint}")
         if not ok_route:

@@ -45,6 +45,8 @@ class Scenario:
         requires_human: 這個情境本身不可自動結案。
         irreversible: 這個情境的訴求涉及不可逆動作。
         reply: 模擬的回覆範本，不含任何承諾。
+        urgent: 這個情境天生時效敏感，優先級直接提到 P1。
+        ack_only: 這個情境不用範本碰內容，只回收件確認。
     """
 
     name: str
@@ -56,6 +58,8 @@ class Scenario:
     requires_human: bool
     irreversible: bool
     reply: str
+    urgent: bool = False
+    ack_only: bool = False
 
 
 GROUPS: Final[tuple[ScenarioGroup, ...]] = (
@@ -231,6 +235,7 @@ SCENARIOS: Final[tuple[Scenario, ...]] = (
         requires_human=True,
         irreversible=False,
         reply="您反映的狀況我們已收到，將由專人調閱該團紀錄後與您聯繫。",
+        ack_only=True,
     ),
     Scenario(
         name="force_majeure",
@@ -242,6 +247,7 @@ SCENARIOS: Final[tuple[Scenario, ...]] = (
         requires_human=True,
         irreversible=False,
         reply="關於天候與不可抗力因素的行程異動，我們會依最新官方資訊與統一處置原則回覆。",
+        urgent=True,
     ),
     Scenario(
         name="ask_clarification",
@@ -311,3 +317,8 @@ def tools_for(names: list[str]) -> tuple[str, ...]:
     """回傳這組情境在下游需要呼叫的工具，依情境目錄的順序去重。"""
     tools = [t for n in names for t in GROUP_BY_NAME[BY_NAME[n].group].tools]
     return tuple(dict.fromkeys(tools))
+
+
+def names_with_disposition(disposition: str) -> tuple[str, ...]:
+    """回傳落在某個受理判定下的情境名稱，供 prompt 生成使用。"""
+    return tuple(s.name for s in SCENARIOS if s.disposition == disposition)

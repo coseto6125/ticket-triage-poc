@@ -2,12 +2,13 @@
   "ticket_id": "TK-1002",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "8bb22a8c13cb1bc7",
   "usage": {
     "input_tokens": 1482,
-    "output_tokens": 120
+    "output_tokens": 134
   },
   "answer": {
-    "reason": "客戶祁沛慈因為家母突然住院想取消7/2出發的行程，詢問退費計算方式。",
+    "reason": "客戶黃小美因家母住院想取消 7/2 出發的北海道行程並詢問退費計算方式。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,7 +18,9 @@
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [],
-    "confidence": 1
+    "residual_pii": [
+      "黃小美"
+    ],
+    "confidence": 0.98
   }
 }

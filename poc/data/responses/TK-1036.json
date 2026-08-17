@@ -2,12 +2,13 @@
   "ticket_id": "TK-1036",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "16a402b4f4320bcb",
   "usage": {
     "input_tokens": 1481,
-    "output_tokens": 131
+    "output_tokens": 123
   },
   "answer": {
-    "reason": "客戶詢問在日本兌換 JR PASS 全國版七日券的地點以及是否需要帶護照正本。",
+    "reason": "客戶劉小美詢問購買的 JR PASS 在日本當地的兌換地點以及是否需要攜帶護照正本。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,9 +18,7 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [
-      "詹又寧"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

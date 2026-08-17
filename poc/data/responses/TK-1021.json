@@ -2,12 +2,13 @@
   "ticket_id": "TK-1021",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "806e7f9ff779a20d",
   "usage": {
     "input_tokens": 1505,
-    "output_tokens": 133
+    "output_tokens": 134
   },
   "answer": {
-    "reason": "戚宗翰詢問明天出發澎湖因颱風是否會延期以及取消退費的計算方式。",
+    "reason": "客戶是即將於明天出發的旅客，因颱風警報詢問行程是否延期以及取消退費規定。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -15,11 +16,11 @@
       "cancel_refund"
     ],
     "is_complaint": false,
-    "is_irreversible": false,
+    "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [
-      "戚宗翰"
+      "林小明"
     ],
-    "confidence": 1.0
+    "confidence": 1
   }
 }

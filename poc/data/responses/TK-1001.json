@@ -2,12 +2,13 @@
   "ticket_id": "TK-1001",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "819a9743f43d30c2",
   "usage": {
     "input_tokens": 1494,
-    "output_tokens": 132
+    "output_tokens": 113
   },
   "answer": {
-    "reason": "客戶詢問 6/20 訂購的沖繩自由行刷卡已成功但未收到確認信，想確認訂單是否成立。",
+    "reason": "客戶劉小明來信表示刷卡已成功但未收到確認信，想確認訂單是否成立。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,9 +17,7 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [
-      "扈晴薇"
-    ],
+    "residual_pii": [],
     "confidence": 1.0
   }
 }

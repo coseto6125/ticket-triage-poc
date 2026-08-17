@@ -2,12 +2,13 @@
   "ticket_id": "TK-1013",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "62550a4d60bae352",
   "usage": {
     "input_tokens": 1501,
-    "output_tokens": 141
+    "output_tokens": 150
   },
   "answer": {
-    "reason": "客戶詢問收到兩封金額不同的扣款通知是否為重複扣款，要求客服確認。",
+    "reason": "客戶陳小美反映訂購峇里島行程收到兩封金額不同的扣款通知，懷疑重複扣款並要求確認。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,8 +19,8 @@
     "is_irreversible": false,
     "money_mentioned": "32,500、33,100",
     "residual_pii": [
-      "衛可庭"
+      "陳小美"
     ],
-    "confidence": 1.0
+    "confidence": 0.98
   }
 }

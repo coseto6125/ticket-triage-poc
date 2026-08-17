@@ -22,6 +22,11 @@ NO_REPLY: Final = "none"
 TEMPLATE: Final = "template"
 ACK_ONLY: Final = "ack_only"
 
+# 優先級
+P_URGENT: Final = "P1"
+P_HUMAN: Final = "P2"
+P_ROUTINE: Final = "P3"
+
 _SCENARIO_HUMAN: Final = "情境需人工"
 _COMPLAINT: Final = "客訴性質"
 _REFERRAL: Final = "非客服來信"
@@ -41,10 +46,10 @@ class Decision(NamedTuple):
     reason: str
 
 
-def _priority(answer: Answer | None, route: str) -> str:
-    if answer is not None and (answer.is_complaint or "force_majeure" in answer.scenarios):
-        return "P1"
-    return "P2" if route == HUMAN else "P3"
+def _priority(answer: Answer, route: str) -> str:
+    if answer.is_complaint or any(catalog.BY_NAME[n].urgent for n in answer.scenarios):
+        return P_URGENT
+    return P_HUMAN if route == HUMAN else P_ROUTINE
 
 
 def decide(answer: Answer, residual_pii: tuple[str, ...]) -> Decision:
@@ -65,15 +70,17 @@ def decide(answer: Answer, residual_pii: tuple[str, ...]) -> Decision:
         triggers.append(_LOW_CONFIDENCE)
 
     if answer.disposition == catalog.REJECT:
-        # 不受理的工單不回覆也不進人工佇列，直接關單
-        return Decision(AUTO, NO_REPLY, "P3", (), f"不受理，自動關單。{answer.reason}")
+        # 自動關單是這條管線唯一會讓工單消失的動作，所以只在完全沒有疑慮時才做。
+        # 只要有任何一條規則成立（典型是信心不足或殘留個資），就改成不回覆但進人工佇列，
+        # 讓人確認它真的是廣告，而不是一封寫得很糟的真實客訴。
+        if triggers:
+            reason = f"疑似不受理但有疑慮（{'、'.join(triggers)}），不回覆，交人工確認。{answer.reason}"
+            return Decision(HUMAN, NO_REPLY, P_HUMAN, tuple(triggers), reason)
+        return Decision(AUTO, NO_REPLY, P_ROUTINE, (), f"不受理，自動關單。{answer.reason}")
 
     route = HUMAN if triggers else AUTO
-    if _COMPLAINT in triggers or answer.primary.name == "service_issue":
-        # 帶客訴或問題出在已交付的服務上，不用範本碰內容，只回收件確認
-        reply_mode = ACK_ONLY
-    else:
-        reply_mode = TEMPLATE
+    # 帶客訴、或主情境本身就不該用範本碰內容的，只回收件確認
+    reply_mode = ACK_ONLY if _COMPLAINT in triggers or answer.primary.ack_only else TEMPLATE
 
     if triggers:
         reason = f"轉真人（{'、'.join(triggers)}）。{answer.reason}"
@@ -84,4 +91,4 @@ def decide(answer: Answer, residual_pii: tuple[str, ...]) -> Decision:
 
 def degraded(detail: str) -> Decision:
     """分類失敗時的降級決策：不猜、不放行，一律轉真人。"""
-    return Decision(HUMAN, ACK_ONLY, "P2", (DEGRADED,), f"轉真人（{DEGRADED}）。{detail}")
+    return Decision(HUMAN, ACK_ONLY, P_HUMAN, (DEGRADED,), f"轉真人（{DEGRADED}）。{detail}")

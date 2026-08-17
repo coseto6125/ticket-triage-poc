@@ -2,12 +2,13 @@
   "ticket_id": "TK-1046",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "e416a799f828df94",
   "usage": {
     "input_tokens": 1474,
-    "output_tokens": 106
+    "output_tokens": 116
   },
   "answer": {
-    "reason": "客戶詢問購買行程後是否能開立英文收據以及需要提供哪些資訊。",
+    "reason": "客戶李小美詢問是否能開立英文收據以及需要提供哪些資訊。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "李小美"
+    ],
     "confidence": 1
   }
 }

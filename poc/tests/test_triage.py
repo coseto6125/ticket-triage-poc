@@ -12,6 +12,8 @@ import os.path
 import unittest
 from pathlib import Path
 
+from google.genai import errors
+
 from triage import bootloader, catalog, gemini, ingest, pii, pipeline, reply, report, router, validate
 
 SOURCE = bootloader.POC_ROOT.parent / "requirements" / "sample_tickets.xlsx"
@@ -191,27 +193,103 @@ class TestRouter(unittest.TestCase):
     def test_complaint_gets_acknowledgement_only(self):
         decision = router.decide(_answer(is_complaint=True), ())
         self.assertEqual(decision.reply_mode, router.ACK_ONLY)
-        self.assertEqual(decision.priority, "P1")
+        self.assertEqual(decision.priority, router.P_URGENT)
 
     def test_clean_enquiry_stays_auto(self):
         decision = router.decide(_answer(), ())
         self.assertEqual((decision.route, decision.reply_mode), (router.AUTO, router.TEMPLATE))
 
-    def test_rejected_ticket_closes_without_a_reply(self):
-        decision = router.decide(
-            _answer(
-                disposition=catalog.REJECT,
-                assignment=catalog.NOT_APPLICABLE,
-                scenarios=("spam_fraud",),
-            ),
-            (),
+    def _rejection(self, **overrides) -> validate.Answer:
+        return _answer(
+            disposition=catalog.REJECT,
+            assignment=catalog.NOT_APPLICABLE,
+            scenarios=("spam_fraud",),
+            **overrides,
         )
+
+    def test_rejected_ticket_closes_without_a_reply(self):
+        decision = router.decide(self._rejection(), ())
         self.assertEqual((decision.route, decision.reply_mode), (router.AUTO, router.NO_REPLY))
+
+    def test_uncertain_rejection_goes_to_a_human_instead_of_closing(self):
+        """自動關單會讓工單消失，所以信心不足時不能關，要有人確認它真的是廣告。"""
+        decision = router.decide(self._rejection(confidence=0.4), ())
+        self.assertEqual(decision.route, router.HUMAN)
+        self.assertEqual(decision.reply_mode, router.NO_REPLY)
+        self.assertIn("信心不足", decision.triggers)
+
+    def test_rejection_with_residual_pii_goes_to_a_human(self):
+        decision = router.decide(self._rejection(), ("A123456789",))
+        self.assertEqual(decision.route, router.HUMAN)
+        self.assertIn("殘留個資", decision.triggers)
+
+    def test_urgent_scenario_gets_top_priority(self):
+        """不可抗力在事件發生時會整批湧入，優先級由情境本身決定，不靠情境名稱寫死。"""
+        decision = router.decide(_answer(scenarios=("force_majeure",)), ())
+        self.assertEqual(decision.priority, router.P_URGENT)
 
     def test_degrade_never_lets_a_ticket_through(self):
         decision = router.degraded("分類服務不可用")
         self.assertEqual(decision.route, router.HUMAN)
         self.assertIn(router.DEGRADED, decision.triggers)
+
+
+class TestLocalRepair(unittest.TestCase):
+    """壞掉的回應先用程式修，修不出合約定的結果才輪到 LLM。"""
+
+    WELL_FORMED = json.dumps(
+        {
+            "reason": "客戶詢問產品內容。",
+            "disposition": "accept",
+            "assignment": "support",
+            "scenarios": ["product_info"],
+            "is_complaint": False,
+            "is_irreversible": False,
+            "money_mentioned": "",
+            "residual_pii": [],
+            "confidence": 0.9,
+        },
+        ensure_ascii=False,
+    )
+
+    def test_accepts_a_clean_response_unchanged(self):
+        self.assertIsNotNone(gemini._local_repair(self.WELL_FORMED))
+
+    def test_cuts_trailing_junk_after_the_closing_brace(self):
+        self.assertIsNotNone(gemini._local_repair(self.WELL_FORMED + "assistant"))
+
+    def test_cuts_trailing_junk_that_itself_contains_a_brace(self):
+        """從最右邊的 } 往左走，垃圾裡自己有 } 也要找得到真正的結尾。"""
+        self.assertIsNotNone(gemini._local_repair(self.WELL_FORMED + "}as}sistant"))
+
+    def test_rejects_valid_json_that_does_not_meet_the_contract(self):
+        """只有 json.loads 成功不算修好，必須通過 schema 驗證。"""
+        self.assertIsNone(gemini._local_repair('{"reason": "只有一個欄位"}'))
+
+    def test_rejects_a_truncated_response(self):
+        self.assertIsNone(gemini._local_repair(self.WELL_FORMED[:60]))
+        self.assertIsNone(gemini._local_repair(""))
+
+
+class TestQuotaHandling(unittest.TestCase):
+    """額度用完是排隊不是失敗，而且判斷依據必須是回應的狀態碼，不是訊息字串。"""
+
+    def _quota_error(self, details: list[dict] | None = None) -> errors.APIError:
+        body = {"error": {"code": 429, "status": "RESOURCE_EXHAUSTED", "details": details or []}}
+        return errors.ClientError(429, body)
+
+    def test_uses_the_retry_delay_the_api_asks_for(self):
+        retry_info = {"@type": "type.googleapis.com/google.rpc.RetryInfo", "retryDelay": "50s"}
+        self.assertEqual(gemini._quota_delay(self._quota_error([retry_info])), 50.0)
+
+    def test_falls_back_to_a_full_window_when_no_delay_is_given(self):
+        self.assertEqual(gemini._quota_delay(self._quota_error()), 60.0)
+
+    def test_ignores_an_unrelated_error_that_merely_contains_429(self):
+        """request id 或 token 數裡出現 429 不代表額度用完。"""
+        other = errors.ServerError(500, {"error": {"message": "request id 4291abc failed"}})
+        self.assertIsNone(gemini._quota_delay(other))
+        self.assertIsNone(gemini._quota_delay(RuntimeError("429 something")))
 
 
 class TestReply(unittest.TestCase):
@@ -222,9 +300,9 @@ class TestReply(unittest.TestCase):
     def test_draft_is_restored_to_the_real_name_before_it_is_written(self):
         answer = _answer()
         decision = router.decide(answer, ())
-        _, draft, _ = reply.render(answer, decision, self.fake, self.masked)
-        self.assertIn("林佳蓉", draft)
-        self.assertNotIn(self.fake, draft)
+        draft = reply.render(answer, decision, self.fake, self.masked)
+        self.assertIn("林佳蓉", draft.text)
+        self.assertNotIn(self.fake, draft.text)
 
     def test_promise_wording_downgrades_the_draft(self):
         self.assertTrue(reply.banned_hits("我們已為您辦理退款"))
@@ -240,8 +318,8 @@ class TestReply(unittest.TestCase):
     def test_handoff_sentence_appears_only_when_a_human_takes_over(self):
         answer = _answer(scenarios=("cancel_refund",))
         decision = router.decide(answer, ())
-        _, draft, _ = reply.render(answer, decision, self.fake, self.masked)
-        self.assertIn("將由專人接手", draft)
+        draft = reply.render(answer, decision, self.fake, self.masked)
+        self.assertIn("將由專人接手", draft.text)
 
 
 class TestCatalog(unittest.TestCase):
@@ -276,7 +354,7 @@ class TestPipelineOutputs(unittest.TestCase):
 
     def test_no_ticket_is_left_unclassified_and_auto(self):
         for row in self.rows:
-            if not row.category:
+            if not row.primary:
                 self.assertEqual(row.decision.route, router.HUMAN, row.ticket.ticket_id)
 
     def test_csv_carries_no_original_personal_data(self):
@@ -288,9 +366,8 @@ class TestPipelineOutputs(unittest.TestCase):
             if ticket_id.startswith("_"):
                 continue
             for entity in entities:
-                if entity["type"] in {"national_id", "phone", "bank_account", "tax_id"}:
-                    with self.subTest(ticket=ticket_id, value=entity["value"]):
-                        self.assertNotIn(entity["value"], text)
+                with self.subTest(ticket=ticket_id, kind=entity["type"], value=entity["value"]):
+                    self.assertNotIn(entity["value"], text)
 
     def test_csv_has_every_declared_column(self):
         path = Path(bootloader.POC_ROOT / "triage_result.csv")

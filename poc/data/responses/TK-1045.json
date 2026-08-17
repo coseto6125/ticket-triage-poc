@@ -2,24 +2,23 @@
   "ticket_id": "TK-1045",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "43c28d662bb57ac6",
   "usage": {
     "input_tokens": 1489,
-    "output_tokens": 128
+    "output_tokens": 121
   },
   "answer": {
-    "reason": "客戶沈柏睿詢問廉航行程如何加購托運行李及其相關費用和期限。",
+    "reason": "客戶詢問在已成立的廉航行程中加購托運行李的費用及出發前加購的期限。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "special_request",
-      "booking_change"
+      "booking_change",
+      "special_request"
     ],
     "is_complaint": false,
-    "is_irreversible": false,
+    "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [
-      "沈柏睿"
-    ],
-    "confidence": 0.95
+    "residual_pii": [],
+    "confidence": 1
   }
 }

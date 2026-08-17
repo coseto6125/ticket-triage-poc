@@ -2,22 +2,24 @@
   "ticket_id": "TK-1039",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "7767d046d12e6c66",
   "usage": {
     "input_tokens": 1504,
-    "output_tokens": 125
+    "output_tokens": 136
   },
   "answer": {
-    "reason": "客戶要求將已成立訂單的二聯式發票更改為三聯式發票並提供統編與抬頭。",
+    "reason": "客戶劉小明要求將已成立訂單的二聯式發票更改為三聯式發票，並提供統編與抬頭。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "payment_billing"
+      "payment_billing",
+      "booking_change"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [
-      "扈晴薇"
+      "劉小明"
     ],
     "confidence": 1
   }

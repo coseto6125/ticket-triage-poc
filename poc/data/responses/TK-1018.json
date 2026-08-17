@@ -2,12 +2,13 @@
   "ticket_id": "TK-1018",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "4512d95dfc97719b",
   "usage": {
     "input_tokens": 1502,
-    "output_tokens": 111
+    "output_tokens": 120
   },
   "answer": {
-    "reason": "客戶詢問護照效期是否符合入境日本的規定以及是否需要先換發護照。",
+    "reason": "客戶吳小明詢問護照效期是否符合日本入境規定以及是否需要換照。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "吳小明"
+    ],
     "confidence": 1.0
   }
 }

@@ -29,7 +29,7 @@
   "TK-1027": {"primary": "member_account", "alt_primary": ["policy_terms"], "scenarios": ["member_account"], "is_complaint": false, "route": "human"},
   "TK-1028": {"primary": "booking_change", "scenarios": ["booking_change"], "is_complaint": false, "route": "human"},
   "TK-1029": {"primary": "service_issue", "scenarios": ["service_issue"], "is_complaint": true, "route": "human"},
-  "TK-1030": {"primary": "payment_billing", "alt_primary": ["product_info"], "scenarios": ["payment_billing"], "is_complaint": false, "route": "human"},
+  "TK-1030": {"primary": "payment_billing", "alt_primary": ["product_info"], "scenarios": ["payment_billing", "product_info"], "is_complaint": true, "route": "human", "_note": "初標 false。依 is_complaint 的定義（針對本公司已發生的作為表達不滿），「也沒有說明差在哪」是在指公司網頁未交代價差，屬於對本公司作為的不滿，改判 true。初標是把「語氣不激烈」當判準，而那正是定義裡明文排除的。"},
   "TK-1031": {"primary": "payment_billing", "scenarios": ["payment_billing"], "is_complaint": true, "route": "human"},
   "TK-1032": {"primary": "special_request", "scenarios": ["special_request"], "is_complaint": false, "route": "auto"},
   "TK-1033": {"primary": "ask_clarification", "scenarios": ["ask_clarification"], "is_complaint": false, "route": "human"},

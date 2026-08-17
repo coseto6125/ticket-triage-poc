@@ -10,7 +10,7 @@
 """
 
 import re
-from typing import Final
+from typing import Final, NamedTuple
 
 from triage import catalog, router
 from triage.pii import Pseudonymizer
@@ -31,6 +31,14 @@ _HANDOFF: Final = "以上為初步說明，尚未確認的部分我們不會先�
 _ACK: Final = "{name} 您好，您的來信我們已經收到，將由專人確認後盡快與您聯繫。"
 
 
+class Draft(NamedTuple):
+    """一封工單要送出的內容。text 已經還原成原值。"""
+
+    reply_mode: str
+    text: str
+    banned_hits: tuple[str, ...]
+
+
 def banned_hits(text: str) -> tuple[str, ...]:
     """回傳文字裡命中的禁用詞，正常情況應為空。"""
     return tuple(m.group(0) for pattern in _BANNED if (m := pattern.search(text)))
@@ -41,7 +49,7 @@ def render(
     decision: router.Decision,
     sender: str,
     pseudonymizer: Pseudonymizer,
-) -> tuple[str, str, tuple[str, ...]]:
+) -> Draft:
     """組出草稿。
 
     Args:
@@ -51,13 +59,14 @@ def render(
         pseudonymizer: 這封工單的假名對照表，用於送出前還原。
 
     Returns:
-        (最終回覆型態, 已還原的草稿文字, 命中的禁用詞)
+        最終的回覆型態、已還原的草稿文字，以及命中的禁用詞。
     """
     if decision.reply_mode == router.NO_REPLY:
-        return router.NO_REPLY, "", ()
+        return Draft(router.NO_REPLY, "", ())
 
+    acknowledgement = pseudonymizer.restore(_ACK.format(name=sender))
     if decision.reply_mode == router.ACK_ONLY or answer is None:
-        return router.ACK_ONLY, pseudonymizer.restore(_ACK.format(name=sender)), ()
+        return Draft(router.ACK_ONLY, acknowledgement, ())
 
     parts = [_GREETING.format(name=sender)]
     parts.extend(catalog.BY_NAME[n].reply for n in answer.scenarios if catalog.BY_NAME[n].reply)
@@ -66,5 +75,5 @@ def render(
     draft = pseudonymizer.restore("\n".join(parts))
 
     if hits := banned_hits(draft):
-        return router.ACK_ONLY, pseudonymizer.restore(_ACK.format(name=sender)), hits
-    return router.TEMPLATE, draft, ()
+        return Draft(router.ACK_ONLY, acknowledgement, hits)
+    return Draft(router.TEMPLATE, draft, ())

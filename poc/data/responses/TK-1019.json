@@ -2,12 +2,13 @@
   "ticket_id": "TK-1019",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "d74867b5c327dbca",
   "usage": {
     "input_tokens": 1505,
-    "output_tokens": 129
+    "output_tokens": 109
   },
   "answer": {
-    "reason": "客戶涂宥安不滿入住的飯店實際狀況與網頁不符且客訴未獲回應，要求給予合理交代與補償。",
+    "reason": "客戶不滿意入住的飯店品質並抱怨未獲回應，要求給予交代與補償。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,9 +17,7 @@
     "is_complaint": true,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [
-      "涂宥安"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

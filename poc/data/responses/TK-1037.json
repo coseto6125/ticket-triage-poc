@@ -2,12 +2,13 @@
   "ticket_id": "TK-1037",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "255ef6dfaa9e5944",
   "usage": {
     "input_tokens": 1492,
-    "output_tokens": 139
+    "output_tokens": 132
   },
   "answer": {
-    "reason": "客戶抱怨曼谷飯店房間有蟑螂且換房被拒，不敢繼續入住後續三晚，要求公司處理並尋求補償。",
+    "reason": "王小美客訴曼谷飯店房間有蟑螂且要求換房被拒，表達不滿並要求處理後續三晚不住的處置方式。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -17,9 +18,7 @@
     "is_complaint": true,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [
-      "藍映竹"
-    ],
+    "residual_pii": [],
     "confidence": 0.98
   }
 }

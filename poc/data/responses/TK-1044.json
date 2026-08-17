@@ -2,23 +2,25 @@
   "ticket_id": "TK-1044",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "62fc9bcdea31b579",
   "usage": {
     "input_tokens": 1502,
-    "output_tokens": 134
+    "output_tokens": 146
   },
   "answer": {
-    "reason": "客戶抱怨客服先前提供錯誤資訊導致多收改期費，要求退還多收的款項。",
+    "reason": "客戶抱怨上次客服提供錯誤資訊導致多付 1,500 元改期費，要求退款並補償。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
       "service_issue",
-      "cancel_refund"
+      "cancel_refund",
+      "payment_billing"
     ],
     "is_complaint": true,
     "is_irreversible": true,
     "money_mentioned": "1,500 元",
     "residual_pii": [
-      "闕思賢"
+      "陳小明"
     ],
     "confidence": 1
   }

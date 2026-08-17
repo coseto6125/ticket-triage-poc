@@ -1,49 +1,49 @@
-ticket_id,created_at,channel,category,category_label,scenarios,route,reply_mode,priority,is_complaint,confidence,triggers,tools,pii_count,money_mentioned,reason
-TK-1001,2026-06-22T09:14:00+08:00,email,order_status,訂單狀態確認,order_status,auto,template,P3,false,1.00,,order_api,1,,可自動處理。客戶詢問 6/20 訂購的沖繩自由行刷卡已成功但未收到確認信，想確認訂單是否成立。
-TK-1002,2026-06-22T09:31:00+08:00,form,cancel_refund,取消與退費,cancel_refund|policy_terms,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,轉真人（情境需人工、不可逆動作）。客戶祁沛慈因為家母突然住院想取消7/2出發的行程，詢問退費計算方式。
-TK-1003,2026-06-22T10:02:00+08:00,email,product_info,產品內容,product_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。
-TK-1004,2026-06-22T10:45:00+08:00,form,pre_trip_info,行前資訊,pre_trip_info|service_issue,human,ack_only,P1,true,0.99,情境需人工|客訴性質,kb_search,1,,轉真人（情境需人工、客訴性質）。客戶抱怨客服電話打不通，並詢問行程表何時會寄出。
-TK-1005,2026-06-22T11:20:00+08:00,email,booking_change,訂單變更,booking_change|special_request,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,轉真人（情境需人工、不可逆動作）。客戶戚宗翰來信詢問如何在已成立的訂單中為 8 個月大的孫子加購嬰兒票。
-TK-1006,2026-06-22T13:05:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,轉真人（情境需人工、非客服來信）。寄件者詢問公司規模約 120 人的年度員工旅遊企業包團服務與報價窗口。
-TK-1007,2026-06-22T13:40:00+08:00,form,booking_change,訂單變更,booking_change,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。客戶郝欣妍原訂3月28日出發的九州團，想改期至4月8日梯次並詢問差價計算方式。
-TK-1008,2026-06-22T14:11:00+08:00,email,spam_fraud,廣告與詐騙,spam_fraud,auto,none,P3,false,1.00,,,0,8888,不受理，自動關單。寄件者發送博弈廣告訊息，與本公司業務無關。
-TK-1009,2026-06-22T14:52:00+08:00,email,special_request,特殊需求,special_request|booking_change,human,template,P2,false,0.95,情境需人工|不可逆動作,kb_search|order_api,1,,轉真人（情境需人工、不可逆動作）。客戶詢問已預訂的郵輪行程是否可以指定海景艙的樓層與位置以避免暈船。
-TK-1010,2026-06-22T15:30:00+08:00,form,payment_billing,付款與發票,payment_billing,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,3,,轉真人（情境需人工、不可逆動作）。客戶沈柏睿要求重開發票以更正統一編號，以便公司報帳。
-TK-1011,2026-06-23T09:05:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,"8,000 元","轉真人（情境需人工、客訴性質、不可逆動作）。客戶抱怨導遊態度差且行程縮水，要求正式道歉並退還部分團費 8,000 元。"
-TK-1012,2026-06-23T09:40:00+08:00,email,booking_change,訂單變更,booking_change,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。客戶Grace Yeh來信要求將7月12日太魯閣一日遊訂單的接送飯店從太魯閣晶英酒店更改為花蓮車站附近的飯店。
-TK-1013,2026-06-23T10:18:00+08:00,email,payment_billing,付款與發票,payment_billing|order_status,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,"32,500、33,100",轉真人（情境需人工、客訴性質、不可逆動作）。客戶詢問收到兩封金額不同的扣款通知是否為重複扣款，要求客服確認。
-TK-1014,2026-06-23T10:55:00+08:00,form,force_majeure,不可抗力,force_majeure|policy_terms,human,template,P1,false,1.00,情境需人工,kb_search,1,,轉真人（情境需人工）。客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。
-TK-1015,2026-06-23T11:32:00+08:00,email,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,"186,000 元",轉真人（情境需人工、不可逆動作）。客戶因骨折開刀無法成行，檢附診斷證明，申請 7/20 馬爾地夫蜜月行程的全額退費。
-TK-1016,2026-06-23T13:10:00+08:00,form,member_account,會員帳號,member_account|order_status,human,template,P2,false,1.00,情境需人工|不可逆動作,account_api|order_api,1,,轉真人（情境需人工、不可逆動作）。客戶涂宥安因為連續輸錯密碼導致會員帳號被鎖定，且收不到驗證碼，要求協助解鎖帳號以處理待付款訂單。
-TK-1017,2026-06-23T13:47:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,2,"18,000 元",轉真人（情境需人工、非客服來信）。供應商寄來7月花東包車報價單，請公司確認並簽回。
-TK-1018,2026-06-23T14:25:00+08:00,email,travel_docs,證件與簽證,travel_docs,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問護照效期是否符合入境日本的規定以及是否需要先換發護照。
-TK-1019,2026-06-23T15:02:00+08:00,email,service_issue,服務品質與求償,service_issue,human,ack_only,P1,true,1.00,情境需人工|客訴性質,,1,,轉真人（情境需人工、客訴性質）。客戶涂宥安不滿入住的飯店實際狀況與網頁不符且客訴未獲回應，要求給予合理交代與補償。
-TK-1020,2026-06-23T15:38:00+08:00,email,pre_trip_info,行前資訊,pre_trip_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶沈柏睿詢問 7/18 九份平溪一日遊的行程表與集合資訊何時會寄出。
-TK-1021,2026-06-24T08:50:00+08:00,form,force_majeure,不可抗力,force_majeure|cancel_refund,human,template,P1,false,1.00,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。戚宗翰詢問明天出發澎湖因颱風是否會延期以及取消退費的計算方式。
-TK-1022,2026-06-24T09:22:00+08:00,email,special_request,特殊需求,special_request|product_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶藍映竹詢問 8 月土耳其團的機上餐與團體餐是否能安排全素餐點。
-TK-1023,2026-06-24T10:03:00+08:00,email,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,4,,轉真人（情境需人工、不可逆動作）。客戶詹又寧來信要求處理 6/10 取消的金門機加酒退款，並提供身分證、手機及匯款帳戶。
-TK-1024,2026-06-24T10:41:00+08:00,form,ask_clarification,資訊不足,ask_clarification,human,ack_only,P1,true,0.85,情境需人工|客訴性質,,0,,轉真人（情境需人工、客訴性質）。客戶抱怨電話打不通，屬於資訊不足的客訴信件。
-TK-1025,2026-06-24T11:15:00+08:00,email,special_request,特殊需求,special_request|product_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶想詢問帶 2 歲小孩參加沖繩團的收費方式與標準。
-TK-1026,2026-06-24T13:30:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,轉真人（情境需人工、非客服來信）。寄件者想應徵貴公司導遊或 OP 職缺，並附上履歷，屬於求職應徵信件。
-TK-1027,2026-06-24T14:07:00+08:00,form,policy_terms,條款與規定,policy_terms|member_account,human,template,P2,false,0.95,情境需人工|不可逆動作,kb_search|account_api,1,,轉真人（情境需人工、不可逆動作）。客戶詢問會員帳號中的旺來金折抵限制與過期規則。
-TK-1028,2026-06-24T14:48:00+08:00,email,booking_change,訂單變更,booking_change|travel_docs,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,3,,轉真人（情境需人工、不可逆動作）。客戶詢問 7/8 首爾團太太護照英文名拼寫錯誤是否需要更正以及會不會影響登機。
-TK-1029,2026-06-25T09:10:00+08:00,email,service_issue,服務品質與求償,service_issue,human,ack_only,P1,true,1.00,情境需人工|客訴性質,,1,"45,000 元",轉真人（情境需人工、客訴性質）。客戶抱怨出發當天領隊未出現導致全家錯過班機，要求賠償相關損失。
-TK-1030,2026-06-25T09:47:00+08:00,form,payment_billing,付款與發票,payment_billing|product_info,human,ack_only,P1,true,0.95,情境需人工|客訴性質|不可逆動作,order_api|kb_search,1,"21,900、25,400",轉真人（情境需人工、客訴性質、不可逆動作）。客戶詹又寧來信詢問官網標示價格與結帳金額不符的原因。
-TK-1031,2026-06-25T10:20:00+08:00,email,payment_billing,付款與發票,payment_billing|order_status,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,"32,500、33,100",轉真人（情境需人工、客訴性質、不可逆動作）。客戶詢問重複扣款處理進度，並表達不滿與要求處理。
-TK-1032,2026-06-25T11:02:00+08:00,email,special_request,特殊需求,special_request|product_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問家父使用輪椅參加日本溫泉行程的無障礙房與斜坡巴士等特殊需求可行性。
-TK-1033,2026-06-25T11:38:00+08:00,form,ask_clarification,資訊不足,ask_clarification|cancel_refund,human,template,P2,false,0.85,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。客戶詢問是否可以退款，但內文過於簡短且未提供訂單資訊，無法判斷具體訴求。
-TK-1034,2026-06-25T13:25:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,2,,轉真人（情境需人工、非客服來信）。創作者洽談沖繩行程的互惠合作或業配提案。
-TK-1035,2026-06-25T14:10:00+08:00,email,pre_trip_info,行前資訊,pre_trip_info,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問 7/15 曼谷團的出發通知與登機資訊何時會寄出。
-TK-1036,2026-06-25T14:55:00+08:00,form,pre_trip_info,行前資訊,pre_trip_info|travel_docs,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問在日本兌換 JR PASS 全國版七日券的地點以及是否需要帶護照正本。
-TK-1037,2026-06-26T09:08:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund,human,ack_only,P1,true,0.98,情境需人工|客訴性質|不可逆動作,order_api,1,,轉真人（情境需人工、客訴性質、不可逆動作）。客戶抱怨曼谷飯店房間有蟑螂且換房被拒，不敢繼續入住後續三晚，要求公司處理並尋求補償。
-TK-1038,2026-06-26T09:44:00+08:00,form,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。寄件者宮子墨詢問上週辦理取消退款後，退款大約需要多久才會入帳至信用卡中。
-TK-1039,2026-06-26T10:21:00+08:00,email,payment_billing,付款與發票,payment_billing,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,3,,轉真人（情境需人工、不可逆動作）。客戶要求將已成立訂單的二聯式發票更改為三聯式發票並提供統編與抬頭。
-TK-1040,2026-06-26T11:00:00+08:00,email,travel_docs,證件與簽證,travel_docs,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。藍映竹詢問 8 月去曼谷的泰國簽證規定與落地簽是否可用。
-TK-1041,2026-06-26T11:35:00+08:00,form,test_noise,測試與無效內容,test_noise,auto,none,P3,false,1.00,,,0,,不受理，自動關單。寄件者發送了一封內容為測試的測試信件，屬於系統測試或無效內容。
-TK-1042,2026-06-26T13:15:00+08:00,email,order_status,訂單狀態確認,order_status,auto,template,P3,false,1.00,,order_api,1,,可自動處理。客戶詢問已付款的六福村門票訂單狀態，並要求補發尚未收到的電子票券 QR code。
-TK-1043,2026-06-26T14:02:00+08:00,form,cancel_refund,取消與退費,cancel_refund|booking_change|product_info,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,轉真人（情境需人工、不可逆動作）。客戶的公司團體報名人數減少，詢問退費計算、剩餘團費變動及是否能成團。
-TK-1044,2026-06-26T14:40:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,"1,500 元",轉真人（情境需人工、客訴性質、不可逆動作）。客戶抱怨客服先前提供錯誤資訊導致多收改期費，要求退還多收的款項。
-TK-1045,2026-06-27T09:30:00+08:00,form,special_request,特殊需求,special_request|booking_change,human,template,P2,false,0.95,情境需人工|不可逆動作,kb_search|order_api,1,,轉真人（情境需人工、不可逆動作）。客戶沈柏睿詢問廉航行程如何加購托運行李及其相關費用和期限。
-TK-1046,2026-06-27T10:12:00+08:00,email,payment_billing,付款與發票,payment_billing,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,轉真人（情境需人工、不可逆動作）。客戶詢問購買行程後是否能開立英文收據以及需要提供哪些資訊。
-TK-1047,2026-06-27T11:05:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,轉真人（情境需人工、非客服來信）。記者步鎮宇來信邀請公司發言人受訪或提供暑假旅遊趨勢的書面回覆。
-TK-1048,2026-06-27T11:42:00+08:00,form,policy_terms,條款與規定,policy_terms,auto,template,P3,false,1.00,,kb_search,1,,可自動處理。客戶詢問跟團在出發前3天取消的手續費比例以及定型化契約的退費級距規定。
+ticket_id,created_at,channel,category,category_label,scenarios,route,reply_mode,priority,is_complaint,confidence,triggers,tools,pii_count,banned_hits,money_mentioned,reason
+TK-1001,2026-06-22T09:14:00+08:00,email,order_status,訂單狀態確認,order_status,auto,template,P3,false,1.00,,order_api,1,,,可自動處理。客戶劉小明來信表示刷卡已成功但未收到確認信，想確認訂單是否成立。
+TK-1002,2026-06-22T09:31:00+08:00,form,cancel_refund,取消與退費,cancel_refund|policy_terms,human,template,P2,false,0.98,情境需人工|不可逆動作,order_api|kb_search,1,,,轉真人（情境需人工、不可逆動作）。客戶黃小美因家母住院想取消 7/2 出發的北海道行程並詢問退費計算方式。
+TK-1003,2026-06-22T10:02:00+08:00,email,product_info,產品內容,product_info,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。寄件者張小美詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。
+TK-1004,2026-06-22T10:45:00+08:00,form,pre_trip_info,行前資訊,pre_trip_info|service_issue,human,ack_only,P1,true,1.00,情境需人工|客訴性質,kb_search,1,,,轉真人（情境需人工、客訴性質）。客戶抱怨客服電話打不通，並詢問行程表何時會寄出。
+TK-1005,2026-06-22T11:20:00+08:00,email,booking_change,訂單變更,booking_change|special_request,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,,轉真人（情境需人工、不可逆動作）。林小明來信詢問已成立的訂單如何在現有基礎上幫孫子加購嬰兒票。
+TK-1006,2026-06-22T13:05:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,,轉真人（情境需人工、非客服來信）。企業客戶詢問公司約120人的年度員工旅遊包團服務與報價窗口。
+TK-1007,2026-06-22T13:40:00+08:00,form,booking_change,訂單變更,booking_change|product_info,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,,轉真人（情境需人工、不可逆動作）。客戶林小美想要將原訂3月28日出發的九州團改期至4月8日，並詢問差價計算方式。
+TK-1008,2026-06-22T14:11:00+08:00,email,spam_fraud,廣告與詐騙,spam_fraud,auto,none,P3,false,1.00,,,0,,8888,不受理，自動關單。寄件者是發財金，信件內容為推銷博弈體驗金的廣告，屬於垃圾與詐騙郵件。
+TK-1009,2026-06-22T14:52:00+08:00,email,special_request,特殊需求,special_request|booking_change,human,template,P2,false,0.95,情境需人工|不可逆動作,kb_search|order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問已預訂的郵輪海景艙是否能指定高樓層或船中段以避免暈船。
+TK-1010,2026-06-22T15:30:00+08:00,form,payment_billing,付款與發票,payment_billing,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,3,,,轉真人（情境需人工、不可逆動作）。客戶王小明來信要求更正上一週訂單發票的統一編號並重新開立。
+TK-1011,2026-06-23T09:05:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,,"8,000 元","轉真人（情境需人工、客訴性質、不可逆動作）。陳小明抱怨清邁團導遊態度差且行程縮水，要求正式道歉並退還部分團費 8,000 元。"
+TK-1012,2026-06-23T09:40:00+08:00,email,booking_change,訂單變更,booking_change,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,,轉真人（情境需人工、不可逆動作）。Lee Hsiao-Mei wants to change her pickup hotel for the Taroko Gorge day tour on Jul 12.
+TK-1013,2026-06-23T10:18:00+08:00,email,payment_billing,付款與發票,payment_billing|order_status,human,ack_only,P1,true,0.98,情境需人工|客訴性質|不可逆動作,order_api,1,,"32,500、33,100",轉真人（情境需人工、客訴性質、不可逆動作）。客戶陳小美反映訂購峇里島行程收到兩封金額不同的扣款通知，懷疑重複扣款並要求確認。
+TK-1014,2026-06-23T10:55:00+08:00,form,force_majeure,不可抗力,force_majeure|policy_terms,human,template,P1,false,1.00,情境需人工,kb_search,1,,,轉真人（情境需人工）。客戶想了解 1 月合掌村行程在大雪停駛時是否會取消以及取消的退費方式。
+TK-1015,2026-06-23T11:32:00+08:00,email,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,"186,000 元",轉真人（情境需人工、不可逆動作）。客戶劉小明因骨折開刀無法成行，申請 7/20 馬爾地夫蜜月行程的全額退費。
+TK-1016,2026-06-23T13:10:00+08:00,form,member_account,會員帳號,member_account|order_status,human,template,P2,false,0.98,情境需人工|不可逆動作,account_api|order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶李小明因為連續輸錯密碼導致會員帳號被鎖定，且收不到驗證碼，要求協助解鎖帳號以處理待付款訂單。
+TK-1017,2026-06-23T13:47:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,2,,"18,000 元",轉真人（情境需人工、非客服來信）。範例巴士公司王先生寄來7月花東包車的報價單與後續確認要求。
+TK-1018,2026-06-23T14:25:00+08:00,email,travel_docs,證件與簽證,travel_docs,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶吳小明詢問護照效期是否符合日本入境規定以及是否需要換照。
+TK-1019,2026-06-23T15:02:00+08:00,email,service_issue,服務品質與求償,service_issue,human,ack_only,P1,true,1.00,情境需人工|客訴性質,,1,,,轉真人（情境需人工、客訴性質）。客戶不滿意入住的飯店品質並抱怨未獲回應，要求給予交代與補償。
+TK-1020,2026-06-23T15:38:00+08:00,email,pre_trip_info,行前資訊,pre_trip_info,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶詢問 7/18 出發的一日遊行程表與集合資訊何時會寄出。
+TK-1021,2026-06-24T08:50:00+08:00,form,force_majeure,不可抗力,force_majeure|cancel_refund,human,template,P1,false,1.00,情境需人工|不可逆動作,order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶是即將於明天出發的旅客，因颱風警報詢問行程是否延期以及取消退費規定。
+TK-1022,2026-06-24T09:22:00+08:00,email,special_request,特殊需求,special_request|product_info,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶詢問 8 月土耳其團的機上餐與團體餐是否能安排全素（不含蛋奶）的特殊餐食需求。
+TK-1023,2026-06-24T10:03:00+08:00,email,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,4,,,轉真人（情境需人工、不可逆動作）。客戶要求查詢或催促先前已取消的 6/10 金門機加酒訂單之退款進度並提供退款帳戶。
+TK-1024,2026-06-24T10:41:00+08:00,form,ask_clarification,資訊不足,ask_clarification,human,ack_only,P1,true,0.95,情境需人工|客訴性質,,0,,,轉真人（情境需人工、客訴性質）。客戶抱怨電話打不通，因內容過於簡短且無具體訂單或需求，判定為資訊不足。
+TK-1025,2026-06-24T11:15:00+08:00,email,special_request,特殊需求,special_request,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶詢問 2 歲小孩參加親子沖繩團的收費方式及計費標準。
+TK-1026,2026-06-24T13:30:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,,轉真人（情境需人工、非客服來信）。寄件者是求職者吳小美，來信附上履歷應徵導遊或 OP 職缺。
+TK-1027,2026-06-24T14:07:00+08:00,form,policy_terms,條款與規定,policy_terms|member_account,human,template,P2,false,0.95,情境需人工|不可逆動作,kb_search|account_api,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問旺來金折抵上限的規則以及點數是否會過期。
+TK-1028,2026-06-24T14:48:00+08:00,email,booking_change,訂單變更,booking_change|travel_docs,human,template,P2,false,0.95,情境需人工|不可逆動作,order_api|kb_search,3,,,轉真人（情境需人工、不可逆動作）。陳小明詢問7/8首爾團太太護照英文姓名拼音有誤是否需要更正以及是否影響登機。
+TK-1029,2026-06-25T09:10:00+08:00,email,service_issue,服務品質與求償,service_issue,human,ack_only,P1,true,1.00,情境需人工|客訴性質,,1,,"45,000 元",轉真人（情境需人工、客訴性質）。客戶吳小明投訴出發當天領隊未出現導致全家錯過班機，要求賠償相關自費損失。
+TK-1030,2026-06-25T09:47:00+08:00,form,payment_billing,付款與發票,payment_billing|product_info,human,ack_only,P1,true,0.95,情境需人工|客訴性質|不可逆動作,order_api|kb_search,1,,"21,900、25,400",轉真人（情境需人工、客訴性質、不可逆動作）。寄件者劉小美反應官網大阪自由行網頁標價與實際結帳金額不符，詢問原因。
+TK-1031,2026-06-25T10:20:00+08:00,email,payment_billing,付款與發票,payment_billing|order_status,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,,"32,500、33,100",轉真人（情境需人工、客訴性質、不可逆動作）。客戶陳小美來信追問峇里島訂單重複扣款的處理進度，並要求盡快回覆否則將請銀行止付。
+TK-1032,2026-06-25T11:02:00+08:00,email,special_request,特殊需求,special_request,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶詢問家父使用輪椅參加日本溫泉行程的無障礙設施可行性與條件。
+TK-1033,2026-06-25T11:38:00+08:00,form,ask_clarification,資訊不足,ask_clarification|cancel_refund,human,template,P2,false,0.95,情境需人工|不可逆動作,order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問訂單是否可以退費，但未提供訂單編號或具體內容，資訊過於含糊。
+TK-1034,2026-06-25T13:25:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,2,,,轉真人（情境需人工、非客服來信）。網紅寫信洽談沖繩行程的業配合作。
+TK-1035,2026-06-25T14:10:00+08:00,email,pre_trip_info,行前資訊,pre_trip_info,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶劉小美詢問 7/15 曼谷團的出發通知與登機資訊何時會寄出。
+TK-1036,2026-06-25T14:55:00+08:00,form,pre_trip_info,行前資訊,pre_trip_info|travel_docs,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶劉小美詢問購買的 JR PASS 在日本當地的兌換地點以及是否需要攜帶護照正本。
+TK-1037,2026-06-26T09:08:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund,human,ack_only,P1,true,0.98,情境需人工|客訴性質|不可逆動作,order_api,1,,,轉真人（情境需人工、客訴性質、不可逆動作）。王小美客訴曼谷飯店房間有蟑螂且要求換房被拒，表達不滿並要求處理後續三晚不住的處置方式。
+TK-1038,2026-06-26T09:44:00+08:00,form,cancel_refund,取消與退費,cancel_refund,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問上週辦理的取消退款何時會退回信用卡入帳。
+TK-1039,2026-06-26T10:21:00+08:00,email,payment_billing,付款與發票,payment_billing|booking_change,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,3,,,轉真人（情境需人工、不可逆動作）。客戶劉小明要求將已成立訂單的二聯式發票更改為三聯式發票，並提供統編與抬頭。
+TK-1040,2026-06-26T11:00:00+08:00,email,travel_docs,證件與簽證,travel_docs,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶王小美詢問 8 月去泰國曼谷旅遊的簽證相關規定與落地簽是否可用。
+TK-1041,2026-06-26T11:35:00+08:00,form,test_noise,測試與無效內容,test_noise,auto,none,P3,false,1.00,,,0,,,不受理，自動關單。寄件者為測試人員，內文僅為測試訊息，無實際客服訴求。
+TK-1042,2026-06-26T13:15:00+08:00,email,order_status,訂單狀態確認,order_status,auto,template,P3,false,1.00,,order_api,1,,,可自動處理。客戶吳小明詢問已付款的六福村門票為何未收到電子票券 QR code，要求今天內處理以備明天使用。
+TK-1043,2026-06-26T14:02:00+08:00,form,cancel_refund,取消與退費,cancel_refund|product_info|booking_change,human,template,P2,false,0.95,情境需人工|不可逆動作,order_api|kb_search,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問 12 人團體有 2 人退出後的退費計算、剩餘團費變動及成團狀況。
+TK-1044,2026-06-26T14:40:00+08:00,email,service_issue,服務品質與求償,service_issue|cancel_refund|payment_billing,human,ack_only,P1,true,1.00,情境需人工|客訴性質|不可逆動作,order_api,1,,"1,500 元","轉真人（情境需人工、客訴性質、不可逆動作）。客戶抱怨上次客服提供錯誤資訊導致多付 1,500 元改期費，要求退款並補償。"
+TK-1045,2026-06-27T09:30:00+08:00,form,booking_change,訂單變更,booking_change|special_request,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api|kb_search,1,,,轉真人（情境需人工、不可逆動作）。客戶詢問在已成立的廉航行程中加購托運行李的費用及出發前加購的期限。
+TK-1046,2026-06-27T10:12:00+08:00,email,payment_billing,付款與發票,payment_billing,human,template,P2,false,1.00,情境需人工|不可逆動作,order_api,1,,,轉真人（情境需人工、不可逆動作）。客戶李小美詢問是否能開立英文收據以及需要提供哪些資訊。
+TK-1047,2026-06-27T11:05:00+08:00,email,non_support,非客服來信,non_support,human,template,P2,false,1.00,情境需人工|非客服來信,ticket_transfer,1,,,轉真人（情境需人工、非客服來信）。記者黃小明邀請公司發言人受訪或提供書面回覆以製作暑假旅遊趨勢專題。
+TK-1048,2026-06-27T11:42:00+08:00,form,policy_terms,條款與規定,policy_terms,auto,template,P3,false,1.00,,kb_search,1,,,可自動處理。客戶詢問跟團在出發前3天取消的手續費比例以及定型化契約的退費級距規定。

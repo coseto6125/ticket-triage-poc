@@ -2,12 +2,13 @@
   "ticket_id": "TK-1033",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "981a012b43546886",
   "usage": {
-    "input_tokens": 1451,
-    "output_tokens": 128
+    "input_tokens": 1450,
+    "output_tokens": 126
   },
   "answer": {
-    "reason": "客戶詢問是否可以退款，但內文過於簡短且未提供訂單資訊，無法判斷具體訴求。",
+    "reason": "客戶詢問訂單是否可以退費，但未提供訂單編號或具體內容，資訊過於含糊。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -18,6 +19,6 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 0.85
+    "confidence": 0.95
   }
 }

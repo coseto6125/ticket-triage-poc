@@ -2,12 +2,13 @@
   "ticket_id": "TK-1003",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
+  "input_digest": "8b43f19628378d98",
   "usage": {
     "input_tokens": 1481,
-    "output_tokens": 113
+    "output_tokens": 128
   },
   "answer": {
-    "reason": "客戶詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。",
+    "reason": "寄件者張小美詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +17,9 @@
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "張小美"
+    ],
     "confidence": 1
   }
 }
