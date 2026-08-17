@@ -9,12 +9,12 @@ Pseudonymizer 的實例屬性，不寫檔、不進日誌、不進送出的請求
 - **抽取層只說「哪一段是個資、語意上是什麼」**。它的介面是「呼叫一個本機模型服務」。
   PoC 沒有本機模型，MockTransport 用人工標註的結果回應同一個介面；正式環境把
   transport 換成真的 HTTP 呼叫，其餘程式不動。標註沒有涵蓋、或標註對不上內文的
-  工單一律抛例外，由上層轉真人，不猜也不放行。
+  工單一律拋例外，由上層轉真人，不猜也不放行。
 - **換成什麼假值完全由程式決定**，不交給模型。程式看原值的字形挑替換方式：全大寫
   拼音換成護照式拼音、大小寫英文換成英文名、中文帶稱謂只換姓保留稱謂、簡稱保留
   簡稱的形式、公司保留業別與組織型態。拿掉的是身分，留下的是分類需要的線索。
 
-假值一律用「王小明／王小美／範例公司」這種一望即知是佔位的值。自己編一個看起來很真
+假值一律用「王小明／王小美／範例公司」這種一看就知道是假的值。自己編一個看起來很真
 的名字有機率撞到真實存在的人，而這組示例姓名讀起來自然，又不可能被誤認成某個真人。
 """
 
@@ -85,7 +85,7 @@ EXTRACTION_TOOL: Final[dict[str, Any]] = {
 
 
 def parse_tool_call(ticket_id: str, arguments: Any) -> list[Entity]:
-    """驗證本機模型的 function call 參數。不合約定就抛例外，由上層轉真人。"""
+    """驗證本機模型的 function call 參數。不合約定就拋例外，由上層轉真人。"""
     if not isinstance(arguments, dict) or not isinstance(items := arguments.get("entities"), list):
         raise ExtractionUnavailable(f"{ticket_id} 的抽取結果不是預期的形狀")
     entities: list[Entity] = []
@@ -105,7 +105,7 @@ class Transport(Protocol):
     """本機個資抽取服務的傳輸層。"""
 
     def extract(self, ticket_id: str, fields: dict[str, str]) -> list[Entity]:
-        """回傳這封工單裡的個資。無法回答時抛 ExtractionUnavailable。"""
+        """回傳這封工單裡的個資。無法回答時拋 ExtractionUnavailable。"""
         ...
 
 
@@ -126,7 +126,7 @@ class MockTransport:
             raise ExtractionUnavailable(f"{ticket_id} 不在本機抽取層的涵蓋範圍")
         entities = parse_tool_call(ticket_id, {"entities": found})
         # 字面值必須真的出現在這封工單裡。對不上代表模型回報的不是這段文字裡的東西
-        # （幻覺、或標註過期），那就不是「少報一筆」而是整份不可信：抛例外轉真人。
+        # （幻覺、或標註過期），那就不是「少報一筆」而是整份不可信：拋例外轉真人。
         blob = "\n".join(fields.values())
         if missing := [e.type for e in entities if e.value not in blob]:
             raise ExtractionUnavailable(f"{ticket_id} 回報的 {'、'.join(missing)} 在內文裡找不到")
@@ -187,7 +187,7 @@ def _person_candidates(value: str) -> list[str]:
 
 
 def _company_candidates(value: str) -> list[str]:
-    """保留業別與組織型態，只換掉可識別的字號。"""
+    """保留業別與組織型態，只換掉公司名稱裡可以認出是誰的那一段。"""
     suffix = next((s for s in _ORG_SUFFIXES if value.endswith(s)), "")
     stem = "範例" if suffix else "範例企業"
     return [f"{stem}{suffix}", f"{stem}二{suffix}", f"{stem}三{suffix}"]

@@ -91,7 +91,7 @@ GROUPS: Final[tuple[ScenarioGroup, ...]] = (
         name="referral",
         label="轉其他單位",
         tools=("ticket_transfer",),
-        note="非客服案件，於工單系統轉單",
+        note="非客服工單，於工單系統轉單",
     ),
     ScenarioGroup(
         name="drop",

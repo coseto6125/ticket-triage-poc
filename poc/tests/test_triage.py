@@ -343,7 +343,7 @@ class TestCatalog(unittest.TestCase):
 
 
 class TestPipelineOutputs(unittest.TestCase):
-    """跑完整管線（重跑既有回應，不呼叫 API），檢查落地的檔案。"""
+    """跑完整管線（重跑既有回應，不呼叫 API），檢查寫出來的檔案。"""
 
     @classmethod
     def setUpClass(cls):

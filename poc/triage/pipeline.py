@@ -33,7 +33,7 @@ class Pipeline:
             ticket.ticket_id, ticket.channel, safe["sender"], safe["subject"], safe["body"]
         )
         if leaked := masked.leaked(text):
-            # 只寫型別不寫值：這段訊息會進 CSV 的 reason 欄，寫原值等於把個資落地
+            # 只寫型別不寫值：這段訊息會進 CSV 的 reason 欄，寫原值等於把個資寫進檔案
             return self._degraded(ticket, masked, f"假名化後仍偵測到 {'、'.join(leaked)} 的原值")
 
         try:

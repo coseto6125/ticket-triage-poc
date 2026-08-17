@@ -1,10 +1,10 @@
-"""分流分類器：對外呼叫 Gemini，並把每次的原始回應落地。
+"""分流分類器：對外呼叫 Gemini，並把每次的原始回應存檔。
 
 三件事在這裡：
 - 節流。免費額度是每分鐘 15 次，超過就會被擋，所以本機自己先守住。
-- 落地。每封工單的原始回應存成一個 JSON，包含模型代號與 prompt 版本，之後要追
+- 存檔。每封工單的原始回應存成一個 JSON，包含模型代號與 prompt 版本，之後要追
   某一筆為什麼被這樣分，直接看那個檔案。
-- 重跑。沒有金鑰時改讀既有的回應檔，任何人都能重現同一份分流結果。缺檔就抛例外，
+- 重跑。沒有金鑰時改讀既有的回應檔，任何人都能重現同一份分流結果。缺檔就拋例外，
   由上層轉真人，不會拿舊資料或空值假裝跑過。
 """
 
@@ -34,8 +34,8 @@ _RETRY_INFO_TYPE: Final = "RetryInfo"
 # 抓 3 次：涵蓋「修一次還是壞、再修一次」的情況，又不會讓一個持續壞掉的回應無限吃掉
 # 每分鐘 15 次的額度。每一次修復都佔一個名額，所以它不是免費的。
 _REPAIR_MAX_ATTEMPTS: Final = 3
-# 完全的貪婪解碼會讓模型有機會鎖進重複輸出的迴圈（實際發生過，一次回了 65KB）。
-# 給一點點溫度就足以跳出來，對分類結果的影響可以忽略。
+# 完全的 greedy decoding 會讓模型有機會鎖進重複輸出的迴圈（實際發生過，一次回了 65KB）。
+# 給一點 temperature 就足以跳出來，對分類結果的影響可以忽略。
 _TEMPERATURE: Final = 0.1
 _REPAIR_PROMPT: Final = (
     "下面這段文字原本應該是一個符合 schema 的 JSON 物件，但它壞掉了：可能被截斷、"
@@ -46,7 +46,7 @@ _REPAIR_PROMPT: Final = (
 
 
 def _digest(text: str) -> str:
-    """送進模型的文字的指紋，用來確認重跑讀到的回應真的對應這段內容。"""
+    """送進模型的文字的 digest，用來確認重跑讀到的回應真的對應這段內容。"""
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
@@ -153,7 +153,7 @@ class Classifier:
             # 給硬上限讓失控的那一次快速失敗，而不是拖著等它自己停。
             max_output_tokens=_MAX_OUTPUT_TOKENS,
         )
-        # 修復用的設定刻意和分類用的不一樣：換掉系統指示、關掉思考預算，讓它只做
+        # 修復用的設定刻意和分類用的不一樣：換掉 system instruction、把 thinking_level 壓到最低，讓它只做
         # 「把這段壞掉的文字重新輸出成合法 JSON」這一件事，不重走一次會壞掉的判斷。
         repair = types.GenerateContentConfig(
             system_instruction=_REPAIR_PROMPT,
@@ -231,7 +231,7 @@ class Classifier:
         raise ClassifierUnavailable(f"重試 {_MAX_ATTEMPTS} 次後仍失敗：{last}")
 
     def _replay(self, ticket_id: str, text: str) -> dict[str, Any]:
-        """讀回既有回應。任何一項對不上就抛例外，由上層轉真人。
+        """讀回既有回應。任何一項對不上就拋例外，由上層轉真人。
 
         重跑的意義是「重現同一份結果」，所以模型、prompt 版本、以及送進去的文字都必須
         和當初錄下來的一致。少了這些檢查，改過 prompt 或改過工單內容之後重跑，會拿舊答案

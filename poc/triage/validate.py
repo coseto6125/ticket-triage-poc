@@ -1,8 +1,8 @@
-"""回應驗證。任何一項對不上就抛例外，由上層降級轉真人，不修補、不猜。
+"""回應驗證。任何一項對不上就拋例外，由上層降級轉真人，不修補、不猜。
 
 除了型別檢查以外，這裡做 docs/adr/0003 講的對帳：模型自己填的受理判定與承辦歸屬，
 必須和它選中的每一個情境在目錄裡登記的值一致。矛盾代表模型這次沒讀懂，而不是
-一個可以就地修好的欄位。
+一個可以直接修好的欄位。
 """
 
 from typing import Any, NamedTuple
@@ -54,7 +54,7 @@ def _strings(raw: dict[str, Any], key: str) -> tuple[str, ...]:
 
 
 def parse(raw: Any) -> Answer:
-    """驗證並轉成 Answer，不合約定就抛 InvalidAnswer。"""
+    """驗證並轉成 Answer，不合約定就拋 InvalidAnswer。"""
     if not isinstance(raw, dict):
         raise InvalidAnswer("回應不是物件")
 
