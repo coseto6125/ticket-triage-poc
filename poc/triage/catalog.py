@@ -38,7 +38,7 @@ class Scenario:
     Attributes:
         name: 程式用的穩定識別字，同時是 JSON schema enum 的值。
         label: 中文名，出現在分流結果與執行摘要。
-        description: 給模型看的觸發說明，決定這封信算不算這個情境。
+        description: 給模型看的觸發說明，決定這封工單算不算這個情境。
         group: 所屬情境群組，決定下游查什麼系統。
         disposition: 這個情境對應的受理判定，用於與模型輸出對帳。
         assignment: 這個情境對應的承辦歸屬，用於與模型輸出對帳。
@@ -263,7 +263,7 @@ SCENARIOS: Final[tuple[Scenario, ...]] = (
     Scenario(
         name="out_of_scope",
         label="範圍外",
-        description="是真實客戶的來信，但訴求不屬於任何已定義的服務情境。這是保底情境，不要用它來裝不想分類的信。",
+        description="是真實客戶的來信，但訴求不屬於任何已定義的服務情境。這是保底情境，不要用它來裝不想分類的工單。",
         group="no_lookup",
         disposition=ACCEPT,
         assignment=SUPPORT,

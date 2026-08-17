@@ -310,7 +310,7 @@ class TestReply(unittest.TestCase):
         self.assertFalse(reply.banned_hits("我們會核對訂單後與您聯繫。"))
 
     def test_no_template_makes_a_promise(self):
-        """情境範本本身不能命中禁用詞，否則每一封都會被降級。"""
+        """情境範本本身不能命中禁用詞，否則每一筆都會被降級。"""
         for scenario in catalog.SCENARIOS:
             with self.subTest(scenario=scenario.name):
                 self.assertEqual(reply.banned_hits(scenario.reply), ())
