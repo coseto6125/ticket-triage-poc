@@ -1,0 +1,23 @@
+{
+  "ticket_id": "TK-1002",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1434,
+    "output_tokens": 120
+  },
+  "answer": {
+    "reason": "客戶因家母住院想取消7/2出發的北海道五日團，並詢問退費計算方式。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "cancel_refund",
+      "policy_terms"
+    ],
+    "is_complaint": false,
+    "is_irreversible": true,
+    "money_mentioned": "",
+    "residual_pii": [],
+    "confidence": 1
+  }
+}

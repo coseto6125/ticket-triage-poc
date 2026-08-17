@@ -1,0 +1,24 @@
+{
+  "ticket_id": "TK-1015",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1466,
+    "output_tokens": 147
+  },
+  "answer": {
+    "reason": "客戶因骨折開刀無法成行，檢附診斷證明，要求取消原訂 7/20 馬爾地夫蜜月行程並申請全額退費。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "cancel_refund"
+    ],
+    "is_complaint": false,
+    "is_irreversible": true,
+    "money_mentioned": "186,000 元",
+    "residual_pii": [
+      "扈晴薇"
+    ],
+    "confidence": 1.0
+  }
+}

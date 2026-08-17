@@ -1,0 +1,24 @@
+{
+  "ticket_id": "TK-1004",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1445,
+    "output_tokens": 121
+  },
+  "answer": {
+    "reason": "客戶步鎮宇抱怨客服電話打不通，實際上是要詢問行程表何時寄出。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "pre_trip_info"
+    ],
+    "is_complaint": true,
+    "is_irreversible": false,
+    "money_mentioned": "",
+    "residual_pii": [
+      "步鎮宇"
+    ],
+    "confidence": 1
+  }
+}

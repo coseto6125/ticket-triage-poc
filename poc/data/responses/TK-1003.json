@@ -1,0 +1,24 @@
+{
+  "ticket_id": "TK-1003",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1433,
+    "output_tokens": 130
+  },
+  "answer": {
+    "reason": "寄件者詢問尚未購買的東京五日遊產品費用包含範圍是否含機場稅、燃油附加費與導遊小費。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "product_info"
+    ],
+    "is_complaint": false,
+    "is_irreversible": false,
+    "money_mentioned": "",
+    "residual_pii": [
+      "麥筱涵"
+    ],
+    "confidence": 1.0
+  }
+}

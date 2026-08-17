@@ -1,0 +1,22 @@
+{
+  "ticket_id": "TK-1008",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1445,
+    "output_tokens": 120
+  },
+  "answer": {
+    "reason": "寄件者發送博弈廣告與優惠訊息，屬於垃圾與詐騙郵件，不應進入客服流程。",
+    "disposition": "reject",
+    "assignment": "not_applicable",
+    "scenarios": [
+      "spam_fraud"
+    ],
+    "is_complaint": false,
+    "is_irreversible": false,
+    "money_mentioned": "8888",
+    "residual_pii": [],
+    "confidence": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "ticket_id": "TK-1007",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1435,
+    "output_tokens": 134
+  },
+  "answer": {
+    "reason": "客戶郝欣妍原訂3月28日出發的九州團，來信詢問是否能改期至4月8日梯次並詢問差價計算方式。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "booking_change",
+      "product_info"
+    ],
+    "is_complaint": false,
+    "is_irreversible": true,
+    "money_mentioned": "",
+    "residual_pii": [],
+    "confidence": 1
+  }
+}

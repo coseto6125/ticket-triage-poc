@@ -1,0 +1,24 @@
+{
+  "ticket_id": "TK-1006",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v2",
+  "usage": {
+    "input_tokens": 1434,
+    "output_tokens": 134
+  },
+  "answer": {
+    "reason": "寄件者涂宥安代表公司詢問 120 人的年度員工旅遊企業包團服務與報價窗口，屬於非客服的業務合作性質。",
+    "disposition": "accept",
+    "assignment": "referral",
+    "scenarios": [
+      "non_support"
+    ],
+    "is_complaint": false,
+    "is_irreversible": false,
+    "money_mentioned": "",
+    "residual_pii": [
+      "涂宥安"
+    ],
+    "confidence": 1
+  }
+}
