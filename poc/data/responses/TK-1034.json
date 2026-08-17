@@ -1,17 +1,17 @@
 {
-  "ticket_id": "TK-1003",
+  "ticket_id": "TK-1034",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1481,
-    "output_tokens": 113
+    "input_tokens": 1498,
+    "output_tokens": 104
   },
   "answer": {
-    "reason": "客戶詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。",
+    "reason": "創作者洽談沖繩行程的互惠合作或業配提案。",
     "disposition": "accept",
-    "assignment": "support",
+    "assignment": "referral",
     "scenarios": [
-      "product_info"
+      "non_support"
     ],
     "is_complaint": false,
     "is_irreversible": false,

@@ -1,25 +1,22 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1048",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1486,
-    "output_tokens": 134
+    "input_tokens": 1488,
+    "output_tokens": 115
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "客戶詢問跟團在出發前3天取消的手續費比例以及定型化契約的退費級距規定。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "force_majeure",
       "policy_terms"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [
-      "詹又寧"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

@@ -49,7 +49,9 @@ def main(argv: list[str] | None = None) -> int:
         if not ok_route:
             diffs.append(f"分流 期望 {want['route']} 得到 {row.decision.route}")
         print(f"{ticket.ticket_id}  {' | '.join(diffs)}")
-        print(f"           情境集 {'|'.join(row.scenarios) or '-'}  觸發 {'|'.join(row.decision.triggers) or '-'}")
+        print(
+            f"           情境集 {'|'.join(row.scenarios) or '-'}  觸發 {'|'.join(row.decision.triggers) or '-'}"
+        )
         print(f"           模型理由 {row.decision.reason}")
 
     total = len(tickets)

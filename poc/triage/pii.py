@@ -59,8 +59,22 @@ class MockTransport:
 # 假值池。同型別的假值必須和原值一樣自然，模型才不會因為看到怪字串而改變判斷。
 _POOLS: Final[dict[str, tuple[str, ...]]] = {
     "person_name": (
-        "沈柏睿", "藍映竹", "涂宥安", "簡雅琳", "闕思賢", "衛可庭", "戚宗翰", "郝欣妍",
-        "宮子墨", "麥筱涵", "步鎮宇", "祁沛慈", "尚文彥", "冉靖翔", "扈晴薇", "詹又寧",
+        "沈柏睿",
+        "藍映竹",
+        "涂宥安",
+        "簡雅琳",
+        "闕思賢",
+        "衛可庭",
+        "戚宗翰",
+        "郝欣妍",
+        "宮子墨",
+        "麥筱涵",
+        "步鎮宇",
+        "祁沛慈",
+        "尚文彥",
+        "冉靖翔",
+        "扈晴薇",
+        "詹又寧",
     ),
     "person_name_en": ("Emily Kao", "Daniel Hsu", "Grace Yeh"),
     "passport_name": ("CHIU YA WEN", "CHIU YA WENN", "LOU CHIH HAO", "PIEN SHU CHEN"),
@@ -91,7 +105,7 @@ class Pseudonymizer:
     一個實例只服務一封工單。對照表存在實例裡，處理完就隨實例消失。
     """
 
-    __slots__ = ("_map", "_forward", "_backward")
+    __slots__ = ("_backward", "_forward", "_map")
 
     def __init__(self, entities: list[Entity]) -> None:
         self._map: list[tuple[str, str, str]] = []  # (型別, 原值, 假值)

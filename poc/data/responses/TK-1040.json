@@ -1,25 +1,22 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1040",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
     "input_tokens": 1486,
-    "output_tokens": 134
+    "output_tokens": 109
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "藍映竹詢問 8 月去曼谷的泰國簽證規定與落地簽是否可用。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "force_majeure",
-      "policy_terms"
+      "travel_docs"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
-    "residual_pii": [
-      "詹又寧"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

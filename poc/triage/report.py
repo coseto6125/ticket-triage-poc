@@ -83,9 +83,7 @@ def write_drafts(rows: list[Row], path: Path) -> None:
 
 def _table(title: str, counts: Counter[str], total: int, label: str) -> list[str]:
     lines = [f"### {title}", "", f"| {label} | 件數 | 佔比 |", "| --- | ---: | ---: |"]
-    lines.extend(
-        f"| {name} | {n} | {n / total:.0%} |" for name, n in counts.most_common()
-    )
+    lines.extend(f"| {name} | {n} | {n / total:.0%} |" for name, n in counts.most_common())
     return [*lines, ""]
 
 
@@ -97,9 +95,7 @@ def build_summary(rows: list[Row], tickets: list[Ticket]) -> str:
         for name in row.scenarios:
             by_scenario[f"{catalog.BY_NAME[name].label}（{name}）"] += 1
     by_group = Counter(
-        catalog.GROUP_BY_NAME[catalog.BY_NAME[row.category].group].label
-        for row in rows
-        if row.category
+        catalog.GROUP_BY_NAME[catalog.BY_NAME[row.category].group].label for row in rows if row.category
     )
     by_route = Counter(row.decision.route for row in rows)
     by_mode = Counter(row.reply_mode for row in rows)
@@ -146,9 +142,5 @@ def build_summary(rows: list[Row], tickets: list[Ticket]) -> str:
         "同一位寄件者的多封工單，未自動合併，理由見 README。",
         "",
     ]
-    lines += (
-        [f"- {name}：{'、'.join(ids)}" for name, ids in repeats.items()]
-        if repeats
-        else ["- 無"]
-    )
+    lines += [f"- {name}：{'、'.join(ids)}" for name, ids in repeats.items()] if repeats else ["- 無"]
     return "\n".join(lines) + "\n"

@@ -1,17 +1,19 @@
 {
-  "ticket_id": "TK-1012",
+  "ticket_id": "TK-1043",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1502,
-    "output_tokens": 125
+    "input_tokens": 1515,
+    "output_tokens": 128
   },
   "answer": {
-    "reason": "客戶Grace Yeh來信要求將7月12日太魯閣一日遊訂單的接送飯店從太魯閣晶英酒店更改為花蓮車站附近的飯店。",
+    "reason": "客戶的公司團體報名人數減少，詢問退費計算、剩餘團費變動及是否能成團。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "cancel_refund",
+      "booking_change",
+      "product_info"
     ],
     "is_complaint": false,
     "is_irreversible": true,

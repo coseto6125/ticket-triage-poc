@@ -1,13 +1,13 @@
 {
-  "ticket_id": "TK-1013",
+  "ticket_id": "TK-1031",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1501,
-    "output_tokens": 141
+    "input_tokens": 1511,
+    "output_tokens": 136
   },
   "answer": {
-    "reason": "客戶詢問收到兩封金額不同的扣款通知是否為重複扣款，要求客服確認。",
+    "reason": "客戶詢問重複扣款處理進度，並表達不滿與要求處理。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -20,6 +20,6 @@
     "residual_pii": [
       "衛可庭"
     ],
-    "confidence": 1.0
+    "confidence": 1
   }
 }

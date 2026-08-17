@@ -1,13 +1,13 @@
 {
-  "ticket_id": "TK-1006",
+  "ticket_id": "TK-1026",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1482,
-    "output_tokens": 124
+    "input_tokens": 1487,
+    "output_tokens": 128
   },
   "answer": {
-    "reason": "寄件者詢問公司規模約 120 人的年度員工旅遊企業包團服務與報價窗口。",
+    "reason": "寄件者想應徵貴公司導遊或 OP 職缺，並附上履歷，屬於求職應徵信件。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -17,7 +17,7 @@
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "涂宥安"
+      "冉靖翔"
     ],
     "confidence": 1
   }

@@ -1,23 +1,24 @@
 {
-  "ticket_id": "TK-1007",
+  "ticket_id": "TK-1016",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1483,
-    "output_tokens": 132
+    "input_tokens": 1493,
+    "output_tokens": 142
   },
   "answer": {
-    "reason": "客戶郝欣妍原訂3月28日出發的九州團，想改期至4月8日梯次並詢問差價計算方式。",
+    "reason": "客戶涂宥安因為連續輸錯密碼導致會員帳號被鎖定，且收不到驗證碼，要求協助解鎖帳號以處理待付款訂單。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "member_account",
+      "order_status"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [
-      "郝欣妍"
+      "涂宥安"
     ],
     "confidence": 1
   }

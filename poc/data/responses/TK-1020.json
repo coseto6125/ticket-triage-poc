@@ -1,24 +1,23 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1020",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1486,
-    "output_tokens": 134
+    "input_tokens": 1484,
+    "output_tokens": 128
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "客戶沈柏睿詢問 7/18 九份平溪一日遊的行程表與集合資訊何時會寄出。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "force_majeure",
-      "policy_terms"
+      "pre_trip_info"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "詹又寧"
+      "沈柏睿"
     ],
     "confidence": 1
   }

@@ -1,25 +1,25 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1021",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1486,
-    "output_tokens": 134
+    "input_tokens": 1505,
+    "output_tokens": 133
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "戚宗翰詢問明天出發澎湖因颱風是否會延期以及取消退費的計算方式。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
       "force_majeure",
-      "policy_terms"
+      "cancel_refund"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "詹又寧"
+      "戚宗翰"
     ],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

@@ -1,18 +1,18 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1036",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1486,
-    "output_tokens": 134
+    "input_tokens": 1481,
+    "output_tokens": 131
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "客戶詢問在日本兌換 JR PASS 全國版七日券的地點以及是否需要帶護照正本。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "force_majeure",
-      "policy_terms"
+      "pre_trip_info",
+      "travel_docs"
     ],
     "is_complaint": false,
     "is_irreversible": false,

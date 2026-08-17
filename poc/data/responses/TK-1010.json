@@ -1,13 +1,13 @@
 {
   "ticket_id": "TK-1010",
   "model": "gemini-3.5-flash-lite",
-  "prompt_version": "v2",
+  "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1453,
-    "output_tokens": 110
+    "input_tokens": 1501,
+    "output_tokens": 117
   },
   "answer": {
-    "reason": "客戶沈柏睿來信要求修正上週訂單的發票統一編號並重新開立。",
+    "reason": "客戶沈柏睿要求重開發票以更正統一編號，以便公司報帳。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +16,9 @@
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "沈柏睿"
+    ],
     "confidence": 1
   }
 }

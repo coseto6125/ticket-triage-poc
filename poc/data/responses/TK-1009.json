@@ -1,13 +1,13 @@
 {
   "ticket_id": "TK-1009",
   "model": "gemini-3.5-flash-lite",
-  "prompt_version": "v2",
+  "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1443,
-    "output_tokens": 127
+    "input_tokens": 1491,
+    "output_tokens": 133
   },
   "answer": {
-    "reason": "客戶詢問已預訂的沖繩郵輪海景艙是否能指定高樓層或船中段位置以避免暈船。",
+    "reason": "客戶詢問已預訂的郵輪行程是否可以指定海景艙的樓層與位置以避免暈船。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -15,9 +15,11 @@
       "booking_change"
     ],
     "is_complaint": false,
-    "is_irreversible": false,
+    "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [],
+    "residual_pii": [
+      "沈柏睿"
+    ],
     "confidence": 0.95
   }
 }

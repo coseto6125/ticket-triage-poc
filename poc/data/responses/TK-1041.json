@@ -1,22 +1,22 @@
 {
-  "ticket_id": "TK-1008",
+  "ticket_id": "TK-1041",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1493,
-    "output_tokens": 113
+    "input_tokens": 1445,
+    "output_tokens": 112
   },
   "answer": {
-    "reason": "寄件者發送博弈廣告訊息，與本公司業務無關。",
+    "reason": "寄件者發送了一封內容為測試的測試信件，屬於系統測試或無效內容。",
     "disposition": "reject",
     "assignment": "not_applicable",
     "scenarios": [
-      "spam_fraud"
+      "test_noise"
     ],
     "is_complaint": false,
     "is_irreversible": false,
-    "money_mentioned": "8888",
+    "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1.0
+    "confidence": 1
   }
 }

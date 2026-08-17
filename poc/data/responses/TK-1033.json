@@ -1,22 +1,23 @@
 {
-  "ticket_id": "TK-1003",
+  "ticket_id": "TK-1033",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1481,
-    "output_tokens": 113
+    "input_tokens": 1451,
+    "output_tokens": 128
   },
   "answer": {
-    "reason": "客戶詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。",
+    "reason": "客戶詢問是否可以退款，但內文過於簡短且未提供訂單資訊，無法判斷具體訴求。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "product_info"
+      "ask_clarification",
+      "cancel_refund"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1
+    "confidence": 0.85
   }
 }

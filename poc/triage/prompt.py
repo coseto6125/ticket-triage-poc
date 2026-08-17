@@ -50,7 +50,4 @@ def build() -> str:
 
 def ticket_text(ticket_id: str, channel: str, sender: str, subject: str, body: str) -> str:
     """把一封工單組成模型的輸入。所有欄位都必須是假名化之後的值。"""
-    return (
-        f"工單編號：{ticket_id}\n來源管道：{channel}\n寄件者：{sender}\n"
-        f"主旨：{subject}\n內文：\n{body}"
-    )
+    return f"工單編號：{ticket_id}\n來源管道：{channel}\n寄件者：{sender}\n主旨：{subject}\n內文：\n{body}"

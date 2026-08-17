@@ -148,7 +148,11 @@ SCENARIOS: Final[tuple[Scenario, ...]] = (
     Scenario(
         name="product_info",
         label="產品內容",
-        description="客戶詢問尚未購買或已購買產品的內容與費用包含範圍：行程包含哪些項目、售價是否含稅含小費、艙房與房型條件、是否有特定服務。",
+        description=(
+            "客戶詢問產品本身對所有人都一樣的內容：行程包含哪些項目、售價是否含稅含小費、"
+            "房型與艙等條件、成團人數。問的如果是他個人的特殊需求能不能被滿足，"
+            "那屬於 special_request，不是這裡。"
+        ),
         group="knowledge_lookup",
         disposition=ACCEPT,
         assignment=SUPPORT,
@@ -192,7 +196,11 @@ SCENARIOS: Final[tuple[Scenario, ...]] = (
     Scenario(
         name="special_request",
         label="特殊需求",
-        description="客戶詢問特殊需求能不能被滿足：素食與飲食限制、無障礙與輪椅、嬰幼兒與孩童收費方式、行李加購。訴求是問可行性與條件。",
+        description=(
+            "客戶問他個人的特殊需求能不能被滿足：素食與飲食限制、無障礙與輪椅、"
+            "嬰幼兒與孩童的收費方式、指定房型或艙位、行李額度。訴求是問可行性與條件。"
+            "如果他要的是在已經成立的訂單上加購或變更，那屬於 booking_change。"
+        ),
         group="knowledge_lookup",
         disposition=ACCEPT,
         assignment=SUPPORT,

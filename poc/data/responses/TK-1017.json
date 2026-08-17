@@ -1,13 +1,13 @@
 {
-  "ticket_id": "TK-1006",
+  "ticket_id": "TK-1017",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1482,
-    "output_tokens": 124
+    "input_tokens": 1505,
+    "output_tokens": 131
   },
   "answer": {
-    "reason": "寄件者詢問公司規模約 120 人的年度員工旅遊企業包團服務與報價窗口。",
+    "reason": "供應商寄來7月花東包車報價單，請公司確認並簽回。",
     "disposition": "accept",
     "assignment": "referral",
     "scenarios": [
@@ -15,9 +15,9 @@
     ],
     "is_complaint": false,
     "is_irreversible": false,
-    "money_mentioned": "",
+    "money_mentioned": "18,000 元",
     "residual_pii": [
-      "涂宥安"
+      "曜嵐工程行 沈柏睿"
     ],
     "confidence": 1
   }

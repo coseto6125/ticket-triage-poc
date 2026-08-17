@@ -1,24 +1,23 @@
 {
-  "ticket_id": "TK-1007",
+  "ticket_id": "TK-1028",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1483,
-    "output_tokens": 132
+    "input_tokens": 1505,
+    "output_tokens": 123
   },
   "answer": {
-    "reason": "客戶郝欣妍原訂3月28日出發的九州團，想改期至4月8日梯次並詢問差價計算方式。",
+    "reason": "客戶詢問 7/8 首爾團太太護照英文名拼寫錯誤是否需要更正以及會不會影響登機。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "booking_change",
+      "travel_docs"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
-    "residual_pii": [
-      "郝欣妍"
-    ],
+    "residual_pii": [],
     "confidence": 1
   }
 }

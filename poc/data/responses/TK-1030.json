@@ -1,25 +1,25 @@
 {
-  "ticket_id": "TK-1013",
+  "ticket_id": "TK-1030",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1501,
-    "output_tokens": 141
+    "input_tokens": 1499,
+    "output_tokens": 142
   },
   "answer": {
-    "reason": "客戶詢問收到兩封金額不同的扣款通知是否為重複扣款，要求客服確認。",
+    "reason": "客戶詹又寧來信詢問官網標示價格與結帳金額不符的原因。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
       "payment_billing",
-      "order_status"
+      "product_info"
     ],
     "is_complaint": true,
     "is_irreversible": false,
-    "money_mentioned": "32,500、33,100",
+    "money_mentioned": "21,900、25,400",
     "residual_pii": [
-      "衛可庭"
+      "詹又寧"
     ],
-    "confidence": 1.0
+    "confidence": 0.95
   }
 }

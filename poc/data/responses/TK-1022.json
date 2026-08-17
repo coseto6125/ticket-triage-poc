@@ -1,24 +1,24 @@
 {
-  "ticket_id": "TK-1014",
+  "ticket_id": "TK-1022",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1486,
-    "output_tokens": 134
+    "input_tokens": 1483,
+    "output_tokens": 133
   },
   "answer": {
-    "reason": "客戶想詢問 1 月合掌村行程在大雪導致巴士停駛時是否會取消以及取消的退費方式。",
+    "reason": "客戶藍映竹詢問 8 月土耳其團的機上餐與團體餐是否能安排全素餐點。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "force_majeure",
-      "policy_terms"
+      "special_request",
+      "product_info"
     ],
     "is_complaint": false,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "詹又寧"
+      "藍映竹"
     ],
     "confidence": 1
   }

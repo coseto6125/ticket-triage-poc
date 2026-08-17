@@ -1,25 +1,24 @@
 {
-  "ticket_id": "TK-1004",
+  "ticket_id": "TK-1019",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1493,
-    "output_tokens": 128
+    "input_tokens": 1505,
+    "output_tokens": 129
   },
   "answer": {
-    "reason": "客戶抱怨客服電話打不通，並詢問行程表何時會寄出。",
+    "reason": "客戶涂宥安不滿入住的飯店實際狀況與網頁不符且客訴未獲回應，要求給予合理交代與補償。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "pre_trip_info",
       "service_issue"
     ],
     "is_complaint": true,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [
-      "步鎮宇"
+      "涂宥安"
     ],
-    "confidence": 0.99
+    "confidence": 1
   }
 }

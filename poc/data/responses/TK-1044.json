@@ -1,13 +1,13 @@
 {
-  "ticket_id": "TK-1011",
+  "ticket_id": "TK-1044",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1511,
-    "output_tokens": 139
+    "input_tokens": 1502,
+    "output_tokens": 134
   },
   "answer": {
-    "reason": "客戶抱怨導遊態度差且行程縮水，要求正式道歉並退還部分團費 8,000 元。",
+    "reason": "客戶抱怨客服先前提供錯誤資訊導致多收改期費，要求退還多收的款項。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
@@ -16,7 +16,7 @@
     ],
     "is_complaint": true,
     "is_irreversible": true,
-    "money_mentioned": "8,000 元",
+    "money_mentioned": "1,500 元",
     "residual_pii": [
       "闕思賢"
     ],

@@ -1,23 +1,23 @@
 {
-  "ticket_id": "TK-1007",
+  "ticket_id": "TK-1039",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1483,
-    "output_tokens": 132
+    "input_tokens": 1504,
+    "output_tokens": 125
   },
   "answer": {
-    "reason": "客戶郝欣妍原訂3月28日出發的九州團，想改期至4月8日梯次並詢問差價計算方式。",
+    "reason": "客戶要求將已成立訂單的二聯式發票更改為三聯式發票並提供統編與抬頭。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "payment_billing"
     ],
     "is_complaint": false,
     "is_irreversible": true,
     "money_mentioned": "",
     "residual_pii": [
-      "郝欣妍"
+      "扈晴薇"
     ],
     "confidence": 1
   }

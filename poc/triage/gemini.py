@@ -9,6 +9,7 @@
 """
 
 import json
+import re
 import time
 from collections import deque
 from typing import Any, Final
@@ -17,10 +18,30 @@ from triage import prompt as prompt_module
 from triage import schema
 from triage.bootloader import API_KEY, MODEL, RESPONSE_DIR, RPM
 
-PROMPT_VERSION: Final = "v2"
+PROMPT_VERSION: Final = "v6"
+_MAX_OUTPUT_TOKENS: Final = 800
 CONFIDENCE_FLOOR: Final = 0.6
 _MAX_ATTEMPTS: Final = 3
 _RETRY_WAITS: Final = (1.0, 3.0)
+_MAX_QUOTA_WAITS: Final = 2
+_RETRY_IN_RE: Final = re.compile(r"retry in ([\d.]+)s")
+_RETRY_DELAY_RE: Final = re.compile(r"retryDelay['\"]?:\s*['\"]?(\d+)s")
+
+
+def _quota_delay(exc: Exception) -> float | None:
+    """額度用完時，回傳 API 要求的等待秒數；不是額度問題就回 None。
+
+    節流器只看得到自己這個行程送出去的請求，換一個行程重跑就會撞牆。API 已經在
+    錯誤訊息裡講了要等多久，照它說的等，比自己猜一個退避秒數可靠。
+    """
+    text = str(exc)
+    if "RESOURCE_EXHAUSTED" not in text and "429" not in text:
+        return None
+    if match := _RETRY_IN_RE.search(text):
+        return float(match.group(1))
+    if match := _RETRY_DELAY_RE.search(text):
+        return float(match.group(1))
+    return 60.0
 
 
 class ClassifierUnavailable(RuntimeError):
@@ -30,7 +51,7 @@ class ClassifierUnavailable(RuntimeError):
 class _RateLimiter:
     """滑動視窗節流：任意 60 秒內不超過 limit 次。"""
 
-    __slots__ = ("_limit", "_calls")
+    __slots__ = ("_calls", "_limit")
 
     def __init__(self, limit: int) -> None:
         self._limit = limit
@@ -44,6 +65,10 @@ class _RateLimiter:
             time.sleep(60.0 - (now - self._calls[0]) + 0.1)
             return self.acquire()
         self._calls.append(now)
+
+    def reset(self) -> None:
+        """等過額度之後視窗已經清空，重新開始計。"""
+        self._calls.clear()
 
 
 class Classifier:
@@ -78,13 +103,16 @@ class Classifier:
             response_schema=self._schema,
             thinking_config=types.ThinkingConfig(thinking_level="MINIMAL"),
             temperature=0.0,
+            # 實際踩過：模型陷入重複輸出，回了 65KB 的壞 JSON。正常回應約 130 token，
+            # 給硬上限讓失控的那一次快速失敗，而不是拖著等它自己停。
+            max_output_tokens=_MAX_OUTPUT_TOKENS,
         )
         last: Exception | None = None
-        for attempt in range(_MAX_ATTEMPTS):
+        attempt = quota_waits = 0
+        while attempt < _MAX_ATTEMPTS:
             try:
-                response = self._client.models.generate_content(
-                    model=MODEL, contents=text, config=config
-                )
+                self._limiter.acquire()
+                response = self._client.models.generate_content(model=MODEL, contents=text, config=config)
                 usage = response.usage_metadata
                 return json.loads(response.text), {
                     "input_tokens": usage.prompt_token_count,
@@ -95,8 +123,14 @@ class Classifier:
                 raise ClassifierUnavailable(f"回應不是合法 JSON：{exc}") from exc
             except Exception as exc:  # noqa: BLE001 傳輸層錯誤一律視為暫時性
                 last = exc
+                if (delay := _quota_delay(exc)) is not None and quota_waits < _MAX_QUOTA_WAITS:
+                    quota_waits += 1
+                    time.sleep(delay + 1.0)
+                    self._limiter.reset()
+                    continue  # 等額度不算一次重試
                 if attempt < len(_RETRY_WAITS):
                     time.sleep(_RETRY_WAITS[attempt])
+                attempt += 1
         raise ClassifierUnavailable(f"重試 {_MAX_ATTEMPTS} 次後仍失敗：{last}")
 
     def classify(self, ticket_id: str, text: str) -> dict[str, Any]:
@@ -107,7 +141,6 @@ class Classifier:
                 raise ClassifierUnavailable(f"{ticket_id} 沒有既有回應可重跑，且未設定金鑰")
             return json.loads(path.read_text(encoding="utf-8"))["answer"]
 
-        self._limiter.acquire()
         answer, usage = self._call(text)
         path.write_text(
             json.dumps(

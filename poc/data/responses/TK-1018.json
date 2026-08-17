@@ -1,22 +1,22 @@
 {
-  "ticket_id": "TK-1012",
+  "ticket_id": "TK-1018",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
     "input_tokens": 1502,
-    "output_tokens": 125
+    "output_tokens": 111
   },
   "answer": {
-    "reason": "客戶Grace Yeh來信要求將7月12日太魯閣一日遊訂單的接送飯店從太魯閣晶英酒店更改為花蓮車站附近的飯店。",
+    "reason": "客戶詢問護照效期是否符合入境日本的規定以及是否需要先換發護照。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "booking_change"
+      "travel_docs"
     ],
     "is_complaint": false,
-    "is_irreversible": true,
+    "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1
+    "confidence": 1.0
   }
 }

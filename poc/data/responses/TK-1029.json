@@ -1,25 +1,24 @@
 {
-  "ticket_id": "TK-1004",
+  "ticket_id": "TK-1029",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1493,
-    "output_tokens": 128
+    "input_tokens": 1517,
+    "output_tokens": 129
   },
   "answer": {
-    "reason": "客戶抱怨客服電話打不通，並詢問行程表何時會寄出。",
+    "reason": "客戶抱怨出發當天領隊未出現導致全家錯過班機，要求賠償相關損失。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "pre_trip_info",
       "service_issue"
     ],
     "is_complaint": true,
     "is_irreversible": false,
-    "money_mentioned": "",
+    "money_mentioned": "45,000 元",
     "residual_pii": [
-      "步鎮宇"
+      "尚文彥"
     ],
-    "confidence": 0.99
+    "confidence": 1
   }
 }

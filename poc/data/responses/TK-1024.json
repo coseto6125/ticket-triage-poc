@@ -1,22 +1,22 @@
 {
-  "ticket_id": "TK-1003",
+  "ticket_id": "TK-1024",
   "model": "gemini-3.5-flash-lite",
   "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1481,
-    "output_tokens": 113
+    "input_tokens": 1456,
+    "output_tokens": 107
   },
   "answer": {
-    "reason": "客戶詢問東京經典五日遊的售價是否包含機場稅、燃油附加費與導遊小費。",
+    "reason": "客戶抱怨電話打不通，屬於資訊不足的客訴信件。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
-      "product_info"
+      "ask_clarification"
     ],
-    "is_complaint": false,
+    "is_complaint": true,
     "is_irreversible": false,
     "money_mentioned": "",
     "residual_pii": [],
-    "confidence": 1
+    "confidence": 0.85
   }
 }

@@ -1,0 +1,27 @@
+{
+  "ticket_id": "TK-1023",
+  "model": "gemini-3.5-flash-lite",
+  "prompt_version": "v6",
+  "usage": {
+    "input_tokens": 1529,
+    "output_tokens": 181
+  },
+  "answer": {
+    "reason": "客戶詹又寧來信要求處理 6/10 取消的金門機加酒退款，並提供身分證、手機及匯款帳戶。",
+    "disposition": "accept",
+    "assignment": "support",
+    "scenarios": [
+      "cancel_refund"
+    ],
+    "is_complaint": false,
+    "is_irreversible": true,
+    "money_mentioned": "",
+    "residual_pii": [
+      "詹又寧",
+      "C123456780",
+      "0987654321",
+      "013-987654321098"
+    ],
+    "confidence": 1
+  }
+}

@@ -1,13 +1,13 @@
 {
   "ticket_id": "TK-1005",
   "model": "gemini-3.5-flash-lite",
-  "prompt_version": "v2",
+  "prompt_version": "v6",
   "usage": {
-    "input_tokens": 1441,
-    "output_tokens": 135
+    "input_tokens": 1489,
+    "output_tokens": 133
   },
   "answer": {
-    "reason": "寄件者戚宗翰想為已成立的訂單加購嬰兒票，屬於客服的訂單變更與特殊需求範圍。",
+    "reason": "客戶戚宗翰來信詢問如何在已成立的訂單中為 8 個月大的孫子加購嬰兒票。",
     "disposition": "accept",
     "assignment": "support",
     "scenarios": [
